@@ -1,0 +1,29 @@
+<mat-tree [dataSource]="dataSource" [treeControl]="treeControl" class="pl-3.5">
+    <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding matTreeNodePaddingIndent="20">
+      <button mat-icon-button disabled
+              [attr.aria-label]="'Toggle ' + node.item" matTreeNodeToggle>
+              
+      </button>
+        <div class="mat-tree-node py-0.5 px-3 text-xs text-gray-700 font-semibold flex items-center gap-1 overflow-hidden text-ellipsis">
+          <div class="w-3 h-3 min-w-3 min-h-3"><img src="assets/icons/document.png" class="w-full h-full opacity-90" srcset=""></div>
+          <div class="t-o-ellipsis overflow-hidden text-ellipsis">{{node?.name}}</div>
+        </div>
+ 
+    </mat-tree-node>
+    <mat-tree-node *matTreeNodeDef="let node; when: hasChild" matTreeNodePadding matTreeNodePaddingIndent="20">
+      <button mat-icon-button class="inner-mat-button"
+              [attr.aria-label]="'Toggle ' + node.item" matTreeNodeToggle>
+              <mat-icon class="text-base leading-3 text-gray-900 p-0 w-4 h-4 font-medium">
+                {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+              </mat-icon>
+      </button>
+      <div class="text-xs  text-gray-700 font-semibold  w-fit flex gap-1 items-center leading-4 overflow-hidden text-ellipsis item_node" >  
+        <div class="w-3 h-3  min-w-3 min-h-3"><img [src]="treeControl.isExpanded(node) ? 'assets/icons/folder.png': 'assets/icons/closed-folder.png'" class="w-full h-full opacity-90" srcset=""></div>
+         <div class="t-o-ellipsis ">{{node?.name}}</div> 
+         <div (click)="addNode(node)" class="flex items-center add_icon"> <mat-icon class="text-sm cursor-pointer leading-7 text-gray-400 p-0 w-4 h-4 font-medium">
+          note_add
+        </mat-icon></div>
+      </div>
+          <img *ngIf="node.isLoading" src="assets/gif/loader.gif" class="w-5 h-5" alt="" srcset="">
+    </mat-tree-node>
+  </mat-tree>

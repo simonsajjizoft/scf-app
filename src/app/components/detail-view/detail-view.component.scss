@@ -1,0 +1,44 @@
+th, td{
+    padding: 5px 15px;
+    overflow: hidden!important;
+    text-overflow: ellipsis!important;
+    width: fit-content;
+}
+
+.search-table-outer { overflow-x: scroll!important;overflow: scroll!important; }
+
+
+th{
+  justify-content: center;
+  text-align: left!important;
+}
+
+tr:nth-child(2n){
+  background-color: aliceblue!important;
+}
+
+th{
+    border-top: 2px solid whitesmoke;
+}
+
+th[columnResize], td[columnResize] {
+    position: relative;
+  }
+
+  
+  th[columnResize]::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 2px; /* Adjust the handle width */
+    height: 100%;
+    cursor: col-resize;
+    background-color: #e6e5e5; /* Handle background color */
+  }
+
+
+  .o-hidden{
+    overflow-x: hidden!important;
+    overflow: hidden!important;
+  }

@@ -1,0 +1,38 @@
+<!-- <div class="py-0 5 px-2 font-semibold flex justify-between mb-4 text-sm">
+  <mat-icon class="text-xl" (click)="resetTree()">refresh</mat-icon>
+  <div (click)="getPrevExpansionModel()" class="flex items-center gap-0.5 cursor-pointer hover:text-emerald-700"><mat-icon  class="text-base">update</mat-icon><span class="text-xs"> Get Previous</span></div>
+</div> -->
+<mat-tree [dataSource]="dataSource" [treeControl]="treeControl" class="text-xs font-semibold ">
+    <mat-nested-tree-node *matTreeNodeDef="let node" >
+      <li>
+        <div class="mat-tree-node py-0.5 px-3 text-xs text-gray-700 font-semibold flex items-center gap-1">
+          <div class="w-3 h-3 min-w-3 min-h-3"><img src="assets/icons/document.png" class="w-full h-full opacity-90" srcset=""></div>
+          <div class="t-o-ellipsis">{{node?.name}}</div>
+        </div>
+      </li>
+    </mat-nested-tree-node>
+    <mat-nested-tree-node *matTreeNodeDef="let node; when: hasChild"  >
+        <li class="example-tree-container ">
+          <div class="mat-tree-node " >
+            <button mat-icon-button  class="cursor-pointer p-0 m-0 h-4 flex items-center "
+            (click)="toggleNode(node)" 
+                  [attr.aria-label]="'toggle ' + node.filename">
+              <mat-icon class="text-base leading-3 text-gray-900 p-0 w-4 h-4 font-medium" >
+                {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+              </mat-icon>
+            </button>
+             <div class="text-xs  text-gray-700 font-semibold h-4 w-fit flex gap-1 items-center leading-5 item_node" [ngClass]="activeNode==node ? 'text-emerald-800 font-bold' : 'text-gray-800'">  
+              <div class="w-3 h-3  min-w-3 min-h-3"><img [src]="treeControl.isExpanded(node) ? 'assets/icons/folder.png': 'assets/icons/closed-folder.png'" class="w-full h-full opacity-90" srcset=""></div>
+               <div class="t-o-ellipsis ">{{node?.name}}</div> 
+            </div>
+        </div>
+        <ul class="example-tree-nested-node ">
+          <div  *ngIf="treeControl.isExpanded(node)" class="py-0.5">
+          <ng-container matTreeNodeOutlet></ng-container>
+          </div>
+        </ul>
+      </li>
+    </mat-nested-tree-node>
+  </mat-tree>
+
+

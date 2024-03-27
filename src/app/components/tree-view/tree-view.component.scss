@@ -1,0 +1,75 @@
+.example-tree-progress-bar {
+    margin-left: 30px;
+  }
+
+
+  *:not(mat-icon) {
+    font-family: "Plus Jakarta Sans",sans-serif !important;
+    word-spacing: 0.1rem !important;
+    -webkit-font-smoothing: antialiased !important;
+    font-smooth: antialiased!important;
+
+}
+
+.mat-tree-node{
+    border: 0!important;
+}
+  
+  .example-tree-nested-node {
+    padding-left: 10px;
+  }
+  
+  mat-tree {
+    margin-left: 10px;
+  }
+
+  .mat-icon-button{
+    margin-left:-30px;
+    width: fit-content!important;
+    padding: 2px!important;
+    line-height: 19px!important;
+    height: 25px!important;
+  }
+
+  .mat-tree-node {
+    padding: 0;
+    display: flex;
+    align-items: center;
+  }
+  
+  
+  .mat-icon-button {
+    z-index: 10;
+  }
+
+  ul, li { 
+    list-style: none; 
+    margin: 0; 
+    padding: 0;  
+  }
+
+  li.example-tree-container .mat-tree-node{
+    height: 24px!important;
+  }
+
+  .selected-node{
+    background-color: whitesmoke!important;
+  }
+
+  .t-o-ellipsis{
+    overflow: hidden!important;
+    text-overflow: ellipsis!important;
+    white-space: nowrap!important;
+  }
+
+  .add_icon{
+    visibility: hidden;
+  }
+  
+  
+  .item_node:hover {
+    .add_icon{
+      visibility: visible;
+    }
+  }
+  

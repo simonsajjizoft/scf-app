@@ -1,0 +1,27 @@
+<div class="py-4 px-4  overflow-auto  ">
+    <table class="w-full text-sm mt-4 search-table-outer">
+        <thead>
+          <tr>
+            <th columnResize>Channel</th>
+            <th columnResize>Unit</th>
+            <th columnResize>Each</th>
+            <th columnResize>Case</th>
+            <th columnResize>Inner</th>
+            <th columnResize>Pallet</th>
+            <!-- Add more columns as needed -->
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of items">
+            <td>{{item?.name}}</td>
+            <td>M</td>
+            <td>L</td>
+            <td>0.5</td>
+            <td>data3</td>
+            <td>M</td>
+            
+          </tr>
+          
+        </tbody>
+      </table>
+</div>
