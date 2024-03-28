@@ -19,13 +19,6 @@ export class CheckboxComponent {
   showProperties:any;
   constructor(private changeDetectorRef: ChangeDetectorRef,
     private renderer: Renderer2) {
-    this.renderer.listen('window', 'click', (e: Event) => {
-      if (e.target != this.field.nativeElement && !this.field.nativeElement.contains(e.target)) {
-        this.showProperties = false;
-        this.selectFieldEvent.emit({item :this.config,id: this.idx,selected:false});
-        this.changeDetectorRef.detectChanges();
-      }
-    });
   }
 
   ngOnInit(): void {
@@ -74,6 +67,12 @@ export class CheckboxComponent {
    autoResizingTArea(){
     this.tArea.nativeElement.style.height = 'auto';
     this.tArea.nativeElement.style.height = `${this.tArea.nativeElement?.scrollHeight}px`;
+   }
+
+   
+   OptionTextChange(opt:any,idx:any,change:any){
+    console.log(change);
+    this.config.values[idx] = change;
    }
 
 }

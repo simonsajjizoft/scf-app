@@ -19,13 +19,7 @@ export class RadioComponent {
   showProperties:any;
   constructor(private changeDetectorRef: ChangeDetectorRef,
     private renderer: Renderer2) {
-    this.renderer.listen('window', 'click', (e: Event) => {
-      if (e.target != this.field.nativeElement && !this.field.nativeElement.contains(e.target)) {
-        this.showProperties = false;
-        this.selectFieldEvent.emit({item :this.config,id: this.idx,selected:false});
-        this.changeDetectorRef.detectChanges();
-      }
-    });
+
   }
 
   ngOnInit(): void {
@@ -65,6 +59,11 @@ export class RadioComponent {
    labelChange(label:any){
     this.config.label = label;
     this.fieldValueChange.emit({item :this.config,id: this.config?.id});
+   }
+
+   OptionTextChange(opt:any,idx:any,change:any){
+    console.log(change);
+    this.config.values[idx] = change;
    }
 
    swap(){

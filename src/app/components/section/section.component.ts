@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { Input } from '@angular/core';
 
 @Component({
@@ -11,6 +11,7 @@ export class SectionComponent {
   @Input() divs:any;
   @Input() config:any;
   @Input() idx:any;
+  @Output() selectConfigEvent = new EventEmitter();
 
   appendField(field:any,item:any){
 
@@ -38,7 +39,16 @@ export class SectionComponent {
     else{
       item.type = field;
       item.placeholder = 'Placeholder';
+      item.label = "Question";
+      item.selected = false;
+      item.checked = false;
     }
+  }
+
+  selectConfig(config:any){
+    this.selectConfigEvent.emit(config);
+    console.log(this.config)
+
   }
 
 }

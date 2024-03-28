@@ -7,10 +7,6 @@
         <div class="font-semibold w-72 bg-primary-color pl-20 py-3 text-white flex items-center text-base gap-2">
             <mat-icon>add_circle_outline</mat-icon>Add Attribute </div>
         <div class="font-semibold relative flex items-center px-4" #layoutModal>
-            <div
-                class="rounded-3xl px-4 py-1.5  text-blue-900   w-fit flex gap-1 items-center">
-                <span class="font-bold">Save</span>
-            </div>
         </div>
     </div>
     <div class="w-full flex gap-4 h-screen-custom  relative">
@@ -25,7 +21,7 @@
         <div class=" py-5 resize-x  overflow-y-auto " [ngSwitch]="layoutView.view" style="flex:1">
             <div class="bg-white h-max" >
                 <div class="bg-blue-50  px-3 py-3 mb-4">
-                    <div class="font-bold text-lg px-3 py-3">Create Form</div>
+                    <div class="font-bold text-lg px-3 py-3 flex justify-between">Create Form <div (click)="submit()" class=" font-medium text-sm text-blue-950">Save</div></div>
                     <div class="px-2"><input type="text"
                             class="border-2 bg-transparent border-gray-300 w-full px-3 py-1 mt-2 opacity-90 focus:opacity-100 outline-none focus:border-blue-600"
                             name="" placeholder="Form Title" id=""></div>
@@ -35,14 +31,14 @@
                 </div>
     
                 <ng-container *ngFor="let section of sections;let i=index">
-                    <app-section [cols]="section?.cols" [divs]="section?.divs" [config]="section" [idx]="i"></app-section>
+                    <app-section [cols]="section?.cols" [divs]="section?.divs" [config]="section" [idx]="i" (selectConfigEvent)="selectConfig($event)"></app-section>
                 </ng-container>
     
             </div>
         </div>
         <div class=" py-5 w-1/5 mr-5 min-w-64 relative ">
             <div class="   bg-white  min-h-full">
-                <div class="overflow-hidden text-sm font-medium py-4  w-full h-full -z-10">
+                <div class="overflow-hidden text-sm font-medium pb-4  w-full h-full -z-10">
                     <div style="height: 100%;">
                         <mat-tab-group>
                             <mat-tab label="Insert">
@@ -90,8 +86,6 @@
     
                                 </div>
                             </mat-tab>
-                            <mat-tab label="Tab">Content 2</mat-tab>
-                            <mat-tab label="Tab">Content 3</mat-tab>
                         </mat-tab-group>
                     </div>
                 </div>

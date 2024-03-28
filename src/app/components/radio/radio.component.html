@@ -1,7 +1,11 @@
 
 <div class="py-2 px-2">
     <mat-radio-group  name="'name'" aria-label="Select an option" class="flex  items-center flex-wrap gap-6 text-sm font-medium">
-        <mat-radio-button [value]="option" *ngFor="let option of config?.values" class="accent-blue-500">{{option}}</mat-radio-button>
+      <div *ngFor="let option of config?.values;let idx=index" class="flex items-center gap-1">
+        <input type="radio" name="0''"  [value]="option"><cite [contentEditable]="true" [innerText]="option" #value (focusout)="OptionTextChange(option,idx,value?.innerText)"  [spellcheck]="false"
+      class="w-full p-3 rounded-md bg-slate-50 focus:border-violet-100 focus:bg-blue-50 outline-none font-medium text-sm"></cite>
+       <img src="assets/icons/del.png" width="14px" height="14px" alt="" (click)="deleteOption(option)">
+      </div>
       </mat-radio-group>
       <div class=" py-4 px-4  w-full gap-2">
         <div (click)="addOption()" *ngFor="let extra of [1]" [value]="extra"

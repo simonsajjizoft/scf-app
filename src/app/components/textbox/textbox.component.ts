@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-textbox',
@@ -7,4 +7,10 @@ import { Component, Input } from '@angular/core';
 })
 export class TextboxComponent {
   @Input() placeholder:any;
+  @Input() config:any;
+  @Output() selectFieldEvent = new EventEmitter();
+
+  selectField(){
+    this.selectFieldEvent.emit(this.config);
+  }
 }

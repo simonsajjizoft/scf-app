@@ -1,8 +1,8 @@
 <div class="grid px-6 py-6 border-b-2 border-gray-100 gap-4 mb-6 " [ngClass]="cols==1 ? 'grid-cols-1' : (cols==2 ? 'grid-cols-2' : (cols==3 ? 'grid-cols-3' : 'grid-cols-4'))">
   <ng-container *ngFor="let item of config?.divs">
-    <div *ngIf="item?.type" class="cursor-pointer opacity-90 hover:opacity-100 min-h-32 flex flex-col items-center justify-center border-dashed border-2 border-gray-100">
+    <div *ngIf="item?.type" class="cursor-pointer opacity-90 hover:opacity-100 min-h-32 flex flex-col items-center py-5 border-dashed border-2 border-gray-100">
       <div class="w-full px-2" [ngSwitch]="item?.type">
-        <app-textbox [placeholder]="item?.placeholder"  *ngSwitchCase="'textbox'"></app-textbox>
+        <app-textbox [placeholder]="item?.placeholder"  *ngSwitchCase="'textbox'" [config]="item" (selectFieldEvent)="selectConfig($event)"></app-textbox>
         <app-radio *ngSwitchCase="'radio'" [config]="item"></app-radio>
         <app-dropdown *ngSwitchCase="'dropdown'" [config]="item"></app-dropdown>
         <app-checkbox *ngSwitchCase="'checkbox'" [config]="item"></app-checkbox>
