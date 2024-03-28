@@ -19,7 +19,7 @@ export class SectionComponent {
       item.label = "Question";
       item.selected = false;
       item.checked = false;
-      item.values = ['Select Option','Option B','Option B']
+      item.values = ['Select Option','Option A','Option B']
     }
     else if(field == 'checkbox'){
       item.type = 'checkbox';
@@ -27,6 +27,13 @@ export class SectionComponent {
       item.selected = false;
       item.checked = false;
       item.values = ["Checkbox 1"]
+    }
+    else if(field == 'radio'){
+      item.type = 'radio';
+      item.label = "Question";
+      item.selected = false;
+      item.checked = false;
+      item.values = ['Option A','Option B']
     }
     else{
       item.type = field;

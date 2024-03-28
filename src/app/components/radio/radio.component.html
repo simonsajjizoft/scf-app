@@ -1,8 +1,10 @@
 
 <div class="py-2 px-2">
-    <mat-radio-group aria-label="Select an option" class="flex  items-center flex-wrap gap-6 text-sm font-medium">
-        <mat-radio-button value="1">Option</mat-radio-button>
-        <mat-radio-button value="2">Option</mat-radio-button>
-        <mat-icon class="c-secondary">add_circle</mat-icon>
+    <mat-radio-group  name="'name'" aria-label="Select an option" class="flex  items-center flex-wrap gap-6 text-sm font-medium">
+        <mat-radio-button [value]="option" *ngFor="let option of config?.values" class="accent-blue-500">{{option}}</mat-radio-button>
       </mat-radio-group>
+      <div class=" py-4 px-4  w-full gap-2">
+        <div (click)="addOption()" *ngFor="let extra of [1]" [value]="extra"
+          class=" w-fit text-blue-800 cursor-pointer font-medium   hover:underline text-xs">Add Option</div>
+      </div>
 </div>

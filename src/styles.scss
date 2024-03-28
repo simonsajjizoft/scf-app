@@ -121,3 +121,16 @@ th, td, table{
 ::ng-deep mwlResizable {
   box-sizing: border-box; // required for the enableGhostResize option to work
 }
+
+.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle{
+  border-color:rgb(66, 134, 244); 
+}
+
+.mat-radio-button.mat-accent .mat-radio-inner-circle{
+  color:rgb(66, 134, 244);
+  background-color:rgb(66, 134, 244) ;
+}
+
+.mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element {
+    background-color:rgba(37, 131, 255, 0.26);
+}
