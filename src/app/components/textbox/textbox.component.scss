@@ -1,0 +1,7 @@
+.w-scr {
+    width: 640px!important;
+}
+
+::ng-deep.mat-menu-panel {
+    max-width: none !important;
+  }

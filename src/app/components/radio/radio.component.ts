@@ -74,4 +74,9 @@ export class RadioComponent {
     this.tArea.nativeElement.style.height = 'auto';
     this.tArea.nativeElement.style.height = `${this.tArea.nativeElement?.scrollHeight}px`;
    }
+
+   editLabelText(ev:any,value:any){
+    if(value?.innerText && value?.innerText?.trim() == '') value.innerHTML = '';
+   }
+   
 }

@@ -12,6 +12,7 @@ export class SectionComponent {
   @Input() config:any;
   @Input() idx:any;
   @Output() selectConfigEvent = new EventEmitter();
+  @Output() unSelectConfigEvent = new EventEmitter();
 
   appendField(field:any,item:any){
 
@@ -49,6 +50,10 @@ export class SectionComponent {
     this.selectConfigEvent.emit(config);
     console.log(this.config)
 
+  }
+
+  unSelectConfig(config:any){
+    this.unSelectConfigEvent.emit(config);
   }
 
 }

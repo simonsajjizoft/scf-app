@@ -69,6 +69,11 @@ export class HomeComponent {
     config.selected = true;
   }
 
+  unSelectConfig(config:any){
+    this.unSelectAllConfigs();
+    config.selected = false;
+  }
+
   unSelectAllConfigs() {
     this.sections.map((section: any) => {
       if (section?.divs) section.divs.map((item: any) => {
