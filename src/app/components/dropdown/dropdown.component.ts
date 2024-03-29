@@ -8,4 +8,7 @@ import { Component, Input } from '@angular/core';
 export class DropdownComponent {
   @Input() config:any;
 
+  editLabelText(ev:any,value:any){
+    if(value?.innerText && value?.innerText?.trim() == '') value.innerHTML = '';
+   }
 }

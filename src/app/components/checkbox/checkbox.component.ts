@@ -75,4 +75,8 @@ export class CheckboxComponent {
     this.config.values[idx] = change;
    }
 
+   editLabelText(ev:any,value:any){
+    if(value?.innerText && value?.innerText?.trim() == '') value.innerHTML = '';
+   }
+
 }

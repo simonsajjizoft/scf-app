@@ -1,4 +1,5 @@
-<div class="px-2 py-3 text-sm">
+<div class="px-2 py-3 text-sm flex flex-col gap-2">
+  <cite [contentEditable]="true" (input)="editLabelText($event,label )" #label class="w-full  p-2 border-2 border-white focus:border-2 focus:border-blue-500   outline-none font-medium text-sm" placeholder="Click here to edit label" [spellcheck]="false"></cite>
     <div aria-labelledby="example-radio-group-label p-6 cursor-default text-sm" class="flex flex-col w-full">
         <div class=" py-1 items-center flex gap-2 w-full" *ngFor="let opt of config?.values;let i = index" [value]="opt">
           <input type="checkbox" class="h-4 w-4  accent-blue-500" name="option" id="">
