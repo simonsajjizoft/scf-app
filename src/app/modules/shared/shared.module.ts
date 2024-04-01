@@ -23,6 +23,7 @@ import { TextboxComponent } from 'src/app/components/textbox/textbox.component';
 import { RadioComponent } from 'src/app/components/radio/radio.component';
 import { DropdownComponent } from 'src/app/components/dropdown/dropdown.component';
 import { CheckboxComponent } from 'src/app/components/checkbox/checkbox.component';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { CheckboxComponent } from 'src/app/components/checkbox/checkbox.componen
     DropdownComponent,
     CheckboxComponent,
     
+    
   ],
   imports: [
     CommonModule,
@@ -52,7 +54,9 @@ import { CheckboxComponent } from 'src/app/components/checkbox/checkbox.componen
     MatTreeModule,
     MatIconModule,
     MatButtonModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatTooltipModule
+    
 
   ],
   exports:[
@@ -79,6 +83,7 @@ import { CheckboxComponent } from 'src/app/components/checkbox/checkbox.componen
     RadioComponent,
     DropdownComponent,
     CheckboxComponent,
+    MatTooltipModule
   ]
 })
 export class SharedModule { }

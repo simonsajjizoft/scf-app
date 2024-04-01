@@ -7,25 +7,32 @@
         <div class="font-semibold w-80 bg-primary-color px-6 py-4 text-white flex justify-end items-center text-base gap-2">
             <mat-icon>add_circle_outline</mat-icon>Add Attribute </div>
         <div class="font-semibold relative flex items-center px-4" #layoutModal>
+            <div class="flex justify-end items-center gap-8 px-3">
+                <div matTooltip="Preview" class="cursor-pointer flex items-center text-blue-900 opacity-85 gap-1 font-semibold"><svg width="24" fill="currentColor" stroke="1" height="24" viewBox="0 0 24 24" focusable="false" class=" NMm5M"><path d="M5 6h16V4H5c-1.1 0-2 .9-2 2v11H1v3h11v-3H5V6zm16 2h-6c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h6c.55 0 1-.45 1-1V9c0-.55-.45-1-1-1zm-1 9h-4v-7h4v7z"></path></svg></div>
+                <button mat-icon-button class="flex items-center"><mat-icon>refresh</mat-icon></button>
+
+                <button mat-icon-button class="flex items-center"><mat-icon>more_vert</mat-icon></button>
+                <!-- <div (click)="submit()" class=" font-semibold text-sm bg-blue-800 opacity-90 px-6 py-2 rounded-md text-white">Publish</div> -->
+            </div>
         </div>
     </div>
     <div class="w-full flex gap-4 h-screen-custom  relative">
         <div class="bg-primary-color w-28 pt-5 font-light">
             <div class="py-4">
                 <div class="text-gray-50 flex flex-col items-center justify-center text-center gap-2 text-sm px-3 py-3">
-                    <mat-icon>home_outline</mat-icon>
+                    <mat-icon class="text-3xl leading-4">home_outline</mat-icon>
                     Home
                 </div>
             </div>
             <div class="py-4">
                 <div class="text-gray-50 flex flex-col items-center justify-center text-center gap-2  text-sm px-3 py-3">
-                    <mat-icon>share</mat-icon>
+                    <mat-icon class="text-3xl leading-4">share</mat-icon>
                     Publications
                 </div>
             </div>
             <div class="py-4">
                 <div class="text-gray-50 flex flex-col items-center justify-center text-center gap-2  text-sm px-3 py-3">
-                    <mat-icon>help_outline</mat-icon>
+                    <mat-icon class="text-3xl leading-4">help_outline</mat-icon>
                     Help Library
                 </div>
             </div>
@@ -35,16 +42,13 @@
                 <div class="bg-white h-max min-h-full" >
                     <div class="bg-blue-50  px-3 py-3 mb-4">
                         <div class="font-bold text-base px-3 py-3 flex justify-between">CREATE FORM 
-                            <!-- <div class="flex justify-end gap-5">
-                                <div (click)="submit()" class=" font-semibold text-sm text-blue-900">Save</div>
-                                <div  class=" font-semibold text-sm text-blue-900">Cancel</div>
-                            </div> -->
+                            
                         </div>
                         <div class="px-2"><input type="text"
-                                class="border-2 bg-transparent border-gray-300 w-full px-3 py-1 mt-2 opacity-90 focus:opacity-100 outline-none focus:border-blue-600"
+                                class="border-2 rounded-md bg-transparent border-gray-300 w-full px-3 py-1 mt-2 opacity-90 focus:opacity-100 outline-none focus:border-blue-600"
                                 name="" placeholder="Form Title" id=""></div>
                         <div class="px-2"><textarea type="text"
-                                class="border-2 bg-transparent border-gray-300 w-full px-3 py-1 mt-2 opacity-90 focus:opacity-100 outline-none focus:border-blue-600"
+                                class="border-2 rounded-md bg-transparent border-gray-300 w-full px-3 py-1 mt-2 opacity-90 focus:opacity-100 outline-none focus:border-blue-600"
                                 name="" placeholder="Description" id=""></textarea></div>
                     </div>
         
@@ -54,17 +58,18 @@
         
                 </div>
             </div>
-            <div class=" w-1/5 mr-5 min-w-72 relative ">
-                <div class=" border  bg-white  min-h-full">
+            <div class=" w-1/5 mr-5 min-w-80 relative ">
+                <div class="  bg-white  min-h-full">
                     <div class="overflow-hidden text-sm font-medium pb-4  w-full h-full -z-10">
                         <div style="height: 100%;">
                             <mat-tab-group>
                                 <mat-tab label="Insert">
                                     <div class=" py-2">
-                                        <div class="grid grid-cols-2 gap-3 py-3  mb-4 px-3">
+                                        <div class="px-5 pt-3">Content Blocks</div>
+                                        <div class="grid grid-cols-2 gap-3 py-3   mb-4 px-5">
                                             <div (click)="addLayout(design)" *ngFor="let design of designs"
-                                                class="h-24 border-2 border-gray-200 flex items-center gap-1 px-2 py-2 bg-zinc-50 hover:bg-zinc-100 cursor-pointer">
-                                                <div *ngFor="let item of design?.divs" class=" bg-slate-200 h-4" [ngClass]="{
+                                                class="h-24   ring-2 ring-gray-200  shadow-sm border-gray-100 flex items-center gap-1 px-2 py-2 bg-zinc-50 hover:bg-zinc-100 cursor-pointer">
+                                                <div *ngFor="let item of design?.divs" class=" bg-slate-300 h-4" [ngClass]="{
                                                 'w-full':design?.divs?.length==1,
                                                 'w-1/2':design?.divs?.length==2,
                                                 'w-1/3':design?.divs?.length==3,
