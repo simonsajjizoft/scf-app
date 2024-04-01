@@ -20,6 +20,7 @@ import { TextboxComponent } from './components/textbox/textbox.component';
 import { RadioComponent } from './components/radio/radio.component';
 import { DropdownComponent } from './components/dropdown/dropdown.component';
 import { CheckboxComponent } from './components/checkbox/checkbox.component';
+import { FormPreviewComponent } from './components/form-preview/form-preview.component';
 @NgModule({
   declarations: [
     AppComponent

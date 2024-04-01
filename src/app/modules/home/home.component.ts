@@ -1,5 +1,7 @@
 import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { ResizeEvent } from 'angular-resizable-element';
+import { FormPreviewComponent } from 'src/app/components/form-preview/form-preview.component';
 
 @Component({
   selector: 'app-home',
@@ -32,7 +34,7 @@ export class HomeComponent {
     }
   }
 
-  constructor() { }
+  constructor(private dialog:MatDialog) { }
 
   selectLayout(layoutId: any) {
     // Unselect every item
@@ -80,6 +82,18 @@ export class HomeComponent {
         item.selected = false;
       });
     })
+  }
+
+  openDialog() {
+    const dialogRef = this.dialog.open(FormPreviewComponent,{  
+      width:'90vw',
+      height:'90vh',
+      data: { sections:this.sections} 
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
   }
 
 

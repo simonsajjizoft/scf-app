@@ -24,6 +24,8 @@ import { RadioComponent } from 'src/app/components/radio/radio.component';
 import { DropdownComponent } from 'src/app/components/dropdown/dropdown.component';
 import { CheckboxComponent } from 'src/app/components/checkbox/checkbox.component';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import { FormPreviewComponent } from 'src/app/components/form-preview/form-preview.component';
+import {MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -41,8 +43,8 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     RadioComponent,
     DropdownComponent,
     CheckboxComponent,
-    
-    
+    FormPreviewComponent,
+        
   ],
   imports: [
     CommonModule,
@@ -55,7 +57,9 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     MatIconModule,
     MatButtonModule,
     MatProgressBarModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatDialogModule
+    
     
 
   ],
@@ -83,7 +87,9 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     RadioComponent,
     DropdownComponent,
     CheckboxComponent,
-    MatTooltipModule
+    MatTooltipModule,
+    FormPreviewComponent,
+    MatDialogModule
   ]
 })
 export class SharedModule { }
