@@ -1,19 +1,23 @@
-<div class="w-full h-full">
-    <div class="flex justify-end"><mat-icon (click)="onCancel()">close</mat-icon></div>
-    <!-- <ng-container *ngFor="let section of sections;let i=index">
-        <div class="grid px-6 py-6 border-b-2 border-gray-100 gap-4 mb-6 relative" [ngClass]="sections?.cols==1 ? 'grid-cols-1' : (sections?.cols==2 ? 'grid-cols-2' : (sections?.cols==3 ? 'grid-cols-3' : 'grid-cols-4'))">
+<div class="w-full h-full p-0">
+    <div class="flex justify-end">
+      <div mat-icon-button class="cursor-pointer flex items-center justify-center hover:bg-gray-100 p-2 rounded-full"><mat-icon (click)="onCancel()">close</mat-icon></div>
+    </div>
+    <div class="w-full flex-1">
+      <ng-container *ngFor="let section of sections;let i=index">
+        <div class="grid px-4 py-4 gap-4 mb-6 relative" [ngClass]="section?.cols==1 ? 'grid-cols-1' : (section?.cols==2 ? 'grid-cols-2' : (section?.cols==3 ? 'grid-cols-3' : 'grid-cols-4'))">
             <ng-container *ngFor="let item of section?.divs">
-              <div *ngIf="item?.type" class="cursor-pointer opacity-90 hover:opacity-100 min-h-32 flex flex-col items-center py-5 border-dashed border-2 border-gray-100">
+              <div *ngIf="item?.type" class="cursor-pointer opacity-90 hover:opacity-100 min-h-32 flex flex-col items-center py-3 ">
                 <div class="w-full px-2" [ngSwitch]="item?.type">
-                  <app-textbox [placeholder]="item?.placeholder"  *ngSwitchCase="'textbox'" [config]="item" (unselectFieldEvent)="unSelectConfig($event)" (selectFieldEvent)="selectConfig($event)"></app-textbox>
-                  <app-radio *ngSwitchCase="'radio'" [config]="item"></app-radio>
-                  <app-dropdown *ngSwitchCase="'dropdown'" [config]="item"></app-dropdown>
-                  <app-checkbox *ngSwitchCase="'checkbox'" [config]="item"></app-checkbox>
+                  <app-textbox *ngSwitchCase="'textbox'" [editable]="false" [placeholder]="item?.placeholder"   [config]="item" (unselectFieldEvent)="unSelectConfig($event)" (selectFieldEvent)="selectConfig($event)"></app-textbox>
+                  <app-radio *ngSwitchCase="'radio'" [editable]="false" [config]="item"></app-radio>
+                  <app-dropdown *ngSwitchCase="'dropdown'" [editable]="false"  [config]="item"></app-dropdown>
+                  <app-checkbox *ngSwitchCase="'checkbox'" [editable]="false" [config]="item"></app-checkbox>
                 </div>
               </div>
             </ng-container>  
           
           </div>
           
-    </ng-container> -->
+    </ng-container>
+    </div>
 </div>

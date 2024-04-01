@@ -2,10 +2,10 @@
   <ng-container *ngFor="let item of config?.divs">
     <div *ngIf="item?.type" class="cursor-pointer opacity-90 hover:opacity-100 min-h-32 flex flex-col items-center py-5 border-dashed border-2 border-gray-100">
       <div class="w-full px-2" [ngSwitch]="item?.type">
-        <app-textbox [placeholder]="item?.placeholder"  *ngSwitchCase="'textbox'" [config]="item" (unselectFieldEvent)="unSelectConfig($event)" (selectFieldEvent)="selectConfig($event)"></app-textbox>
-        <app-radio *ngSwitchCase="'radio'" [config]="item"></app-radio>
-        <app-dropdown *ngSwitchCase="'dropdown'" [config]="item"></app-dropdown>
-        <app-checkbox *ngSwitchCase="'checkbox'" [config]="item"></app-checkbox>
+        <app-textbox  *ngSwitchCase="'textbox'" [editable]="true" [placeholder]="item?.placeholder"  [config]="item" (unselectFieldEvent)="unSelectConfig($event)" (selectFieldEvent)="selectConfig($event)"></app-textbox>
+        <app-radio *ngSwitchCase="'radio'" [editable]="true" [config]="item"></app-radio>
+        <app-dropdown *ngSwitchCase="'dropdown'" [editable]="true" [config]="item"></app-dropdown>
+        <app-checkbox *ngSwitchCase="'checkbox'" [editable]="true" [config]="item"></app-checkbox>
       </div>
     </div>
     <div *ngIf="!item?.type" class="cursor-pointer rounded-sm bg-slate-100 opacity-100 hover:opacity-100 h-32 flex flex-col items-center justify-center border-dashed border-2 border-gray-300">

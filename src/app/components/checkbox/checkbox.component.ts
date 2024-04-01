@@ -9,6 +9,7 @@ export class CheckboxComponent {
   @Input() config:any;
   @Input() idx:any;
   @Input() checkedField:any;
+  @Input() editable:any;
   @HostBinding('style.width') public width: string|any = '50%';
   @ViewChild('field') field: ElementRef|any; 
   @ViewChild('tArea') tArea:ElementRef|any;
@@ -78,5 +79,10 @@ export class CheckboxComponent {
    editLabelText(ev:any,value:any){
     if(value?.innerText && value?.innerText?.trim() == '') value.innerHTML = '';
    }
+
+   changeLabelText(ev: any) {
+    this.config.label = ev;
+  }
+
 
 }

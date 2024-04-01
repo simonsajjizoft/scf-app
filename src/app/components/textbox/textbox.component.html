@@ -17,6 +17,6 @@
         </div>
       </mat-menu>
     
-    <cite [contentEditable]="true" (input)="editLabelText($event,label )" #label class="w-full  p-2 border-2 border-white focus:border-2 focus:border-blue-500   outline-none font-medium text-sm" placeholder="Click here to edit label" [spellcheck]="false"></cite>
+    <cite [contentEditable]="editable" (input)="editLabelText($event,label )" [innerText]="config?.label" (focusout)="changeLabelText(label?.innerText)" #label class="w-full  p-2 border-2 border-white focus:border-2 focus:border-blue-500   outline-none font-medium text-sm" placeholder="Click here to edit label" [spellcheck]="false"></cite>
     <input [matMenuTriggerFor]="configMenu"  (click)="selectField()" (focusout)="unselectField()" type="text" [placeholder]="placeholder" [ngClass]="config?.selected ? 'border-blue-500': 'border-gray-300'" class="border-2  outline-none rounded-md w-full min-h-8 px-2 py-2">
 </div>

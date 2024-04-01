@@ -8,6 +8,7 @@ import { Component, ElementRef, EventEmitter, Input, Output, Renderer2, ViewChil
 export class TextboxComponent {
   @Input() placeholder:any;
   @Input() config:any;
+  @Input() editable:any;
   @Output() selectFieldEvent = new EventEmitter();
   @Output() unselectFieldEvent = new EventEmitter();
   @ViewChild('field') field: ElementRef|any;
@@ -19,12 +20,15 @@ export class TextboxComponent {
   }
 
   selectField(){
-    this.showConfig = true;
-    this.selectFieldEvent.emit(this.config);
+    if(this.editable){
+      this.showConfig = true;
+      this.selectFieldEvent.emit(this.config);
+    }
+
   }
 
   unselectField(){
-    this.unselectFieldEvent.emit(this.config);
+    if(this.editable) this.unselectFieldEvent.emit(this.config);
   }
 
   changePlaceholderText(ev:any){
@@ -33,6 +37,10 @@ export class TextboxComponent {
 
   editLabelText(ev:any,value:any){
     if(value?.innerText && value?.innerText?.trim() == '') value.innerHTML = '';
+   }
+
+   changeLabelText(ev:any){
+    this.config.label = ev;
    }
 
 }

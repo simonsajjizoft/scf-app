@@ -86,8 +86,10 @@ export class HomeComponent {
 
   openDialog() {
     const dialogRef = this.dialog.open(FormPreviewComponent,{  
-      width:'90vw',
-      height:'90vh',
+      width:'100vw',
+      height:'100vh',
+      maxWidth: '100vw',
+      maxHeight: '100vh',
       data: { sections:this.sections} 
     });
 

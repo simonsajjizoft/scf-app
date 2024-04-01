@@ -1,5 +1,5 @@
 <div class="flex-col flex gap-2">
-  <cite [contentEditable]="true" (input)="editLabelText($event,label )" #label class="w-full  p-2 border-2 border-white focus:border-2 focus:border-blue-500   outline-none font-medium text-sm" placeholder="Click here to edit label" [spellcheck]="false"></cite>
+  <cite [contentEditable]="editable" (input)="editLabelText($event,label )" [innerText]="config?.label" (focusout)="changeLabelText(label?.innerText)" #label class="w-full  p-2 border-2 border-white focus:border-2 focus:border-blue-500   outline-none font-medium text-sm" placeholder="Click here to edit label" [spellcheck]="false"></cite>
   <div class="inline-block relative w-full " >
     <select class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-3.5 py-2.5 pr-8 rounded  leading-tight focus:outline-none focus:shadow-outline">
       <option *ngFor="let value of config?.values" class="px-3.5 py-3">{{value}}</option>

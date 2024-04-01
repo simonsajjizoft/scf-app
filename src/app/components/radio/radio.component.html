@@ -1,16 +1,16 @@
 
 <div class=" px-2 py-2 flex flex-col gap-2 w-full">
-      <cite [contentEditable]="true" (input)="editLabelText($event,label )" #label class="w-full  p-2 border-2 border-white focus:border-2 focus:border-blue-500   outline-none font-medium text-sm" placeholder="Click here to edit label"  [spellcheck]="false"></cite>
+      <cite [contentEditable]="editable" (input)="editLabelText($event,label )" [innerText]="config?.label" (focusout)="changeLabelText(label?.innerText)" #label class="w-full  p-2 border-2 border-white focus:border-2 focus:border-blue-500   outline-none font-medium text-sm" placeholder="Click here to edit label"  [spellcheck]="false"></cite>
     <div>
       <mat-radio-group  name="'name'" aria-label="Select an option" class="flex  items-center flex-wrap gap-6 text-sm font-medium">
         <div *ngFor="let option of config?.values;let idx=index" class="flex items-center gap-1">
-          <input type="radio" name="0''"  [value]="option"><cite [contentEditable]="true" [innerText]="option" #value (focusout)="OptionTextChange(option,idx,value?.innerText)"  [spellcheck]="false"
+          <input type="radio" name="0''"  [value]="option"><cite [contentEditable]="editable" [innerText]="option" #value (focusout)="OptionTextChange(option,idx,value?.innerText)"  [spellcheck]="false"
         class="w-full p-3 rounded-md bg-slate-50 focus:border-violet-100 focus:bg-blue-50 outline-none font-medium text-sm"></cite>
-         <img src="assets/icons/del.png" width="14px" height="14px" alt="" (click)="deleteOption(option)">
+         <img *ngIf="editable" src="assets/icons/del.png" width="14px" height="14px" alt="" (click)="deleteOption(option)">
         </div>
         </mat-radio-group>
-        <div class=" py-4 px-4  w-full gap-2">
-          <div (click)="addOption()" *ngFor="let extra of [1]" [value]="extra"
+        <div *ngIf="editable" class=" py-4 px-4  w-full gap-2">
+          <div  (click)="addOption()" *ngFor="let extra of [1]" [value]="extra"
             class=" w-fit text-blue-800 cursor-pointer font-medium   hover:underline text-xs">Add Option</div>
         </div>
     </div>
