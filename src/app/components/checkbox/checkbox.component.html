@@ -1,10 +1,10 @@
-<div class="px-2 py-3 text-sm flex flex-col gap-2">
+<div class="px-2 py-2 text-sm flex flex-col gap-2">
   <cite [contentEditable]="editable" (input)="editLabelText($event,label )" [innerText]="config?.label" (focusout)="changeLabelText(label?.innerText)" #label class="w-full  p-2 border-2 border-white focus:border-2 focus:border-blue-500   outline-none font-medium text-sm" placeholder="Click here to edit label" [spellcheck]="false"></cite>
-    <div aria-labelledby="example-radio-group-label p-6 cursor-default text-sm" class="flex flex-col w-full">
-        <div class=" py-1 items-center flex gap-2 w-full" *ngFor="let opt of config?.values;let i = index" [value]="opt">
+    <div aria-labelledby="example-radio-group-label  " class="flex flex-col w-full cursor-default text-sm">
+        <div class=" py-0.5 items-center flex gap-2 w-full" *ngFor="let opt of config?.values;let i = index" [value]="opt">
           <input type="checkbox" class="h-4 w-4  accent-blue-500" name="option" id="">
-          <cite [contentEditable]="editable" [innerText]="opt" #value (focusout)="OptionTextChange(opt,i,value?.innerText)" 
-            class="w-3/4 p-3 rounded-md bg-slate-50 focus:border-violet-100 focus:bg-blue-50 outline-none font-medium text-sm"></cite>
+          <cite [contentEditable]="editable" [ngClass]="editable ? 'bg-slate-50' :''" [innerText]="opt" #value (focusout)="OptionTextChange(opt,i,value?.innerText)" 
+            class="w-3/4 p-2 rounded-md  focus:border-violet-100 focus:bg-blue-50 outline-none font-medium text-sm"></cite>
           <img *ngIf="editable"  (click)="deleteOption(opt)" src="assets/icons/del.png" width="16px" height="16px" class=" cursor-pointer"
             alt="" srcset="">
     
