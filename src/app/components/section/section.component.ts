@@ -18,21 +18,21 @@ export class SectionComponent {
 
     if(field == 'dropdown'){
       item.type = 'dropdown';
-      item.label = "Question";
+      item.label = "";
       item.selected = false;
       item.checked = false;
       item.values = ['Select Option','Option A','Option B']
     }
     else if(field == 'checkbox'){
       item.type = 'checkbox';
-      item.label = "Question";
+      item.label = "";
       item.selected = false;
       item.checked = false;
       item.values = ["Checkbox 1"]
     }
     else if(field == 'radio'){
       item.type = 'radio';
-      item.label = "Question";
+      item.label = "";
       item.selected = false;
       item.checked = false;
       item.values = ['Option A','Option B']
@@ -40,7 +40,7 @@ export class SectionComponent {
     else{
       item.type = field;
       item.placeholder = 'Placeholder';
-      item.label = "Question";
+      item.label = "";
       item.selected = false;
       item.checked = false;
     }
