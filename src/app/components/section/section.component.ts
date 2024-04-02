@@ -21,28 +21,41 @@ export class SectionComponent {
       item.label = "";
       item.selected = false;
       item.checked = false;
-      item.values = ['Select Option','Option A','Option B']
+      item.values = ['Select Option','Option A','Option B'];
+      item.required = false;
     }
     else if(field == 'checkbox'){
       item.type = 'checkbox';
       item.label = "";
       item.selected = false;
       item.checked = false;
-      item.values = ["Checkbox 1"]
+      item.values = ["Checkbox 1"];
+      item.required = false;
     }
     else if(field == 'radio'){
       item.type = 'radio';
       item.label = "";
       item.selected = false;
       item.checked = false;
-      item.values = ['Option A','Option B']
+      item.values = ['Option A','Option B'];
+      item.required = false;
     }
-    else{
+    else if(field == 'textbox'){
       item.type = field;
       item.placeholder = 'Placeholder';
       item.label = "";
       item.selected = false;
       item.checked = false;
+      item.required = false;
+      item.minLength = "";
+      item.maxLength = "";
+    }
+    else{
+      item.type = field;
+      item.label = "";
+      item.selected = false;
+      item.checked = false;
+      item.required = false;
     }
   }
 
