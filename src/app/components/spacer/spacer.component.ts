@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-spacer',
@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./spacer.component.scss']
 })
 export class SpacerComponent {
+  @Input() config:any;
+  @Input() idx:any;
+
 
 }

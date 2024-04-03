@@ -100,5 +100,19 @@ export class HomeComponent {
     });
   }
 
+  addDivider(){
+    let obj = { cols: 1, divs: [{ type: 'divider' }] };
+    let tempArray = JSON.parse(JSON.stringify(obj));
+    tempArray.id = this.sections.length;
+    this.sections.push(tempArray);
+  }
+
+  addSpacer(){
+    let obj = { cols: 1, divs: [{ type: 'spacer' }] };
+    let tempArray = JSON.parse(JSON.stringify(obj));
+    tempArray.id = this.sections.length;
+    this.sections.push(tempArray);
+  }
+
 
 }

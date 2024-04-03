@@ -14,6 +14,8 @@
         <app-checkbox *ngSwitchCase="'checkbox'" [editable]="true" [config]="item"
           (deleteItemEvent)="deleteItem($event)" [idx]="idx"></app-checkbox>
         <app-label *ngSwitchCase="'label'" [editable]="true" [config]="item" [idx]="idx"  (deleteItemEvent)="deleteItem($event)"></app-label>
+        <app-divider *ngSwitchCase="'divider'" [editable]="true" [config]="item" [idx]="idx" ></app-divider>
+        <app-spacer *ngSwitchCase="'spacer'" [editable]="true" [config]="item" [idx]="idx" ></app-spacer>
       </div>
     </div>
     <div *ngIf="!item?.type"

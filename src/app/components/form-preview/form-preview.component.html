@@ -15,6 +15,8 @@
                   <app-radio *ngSwitchCase="'radio'" [editable]="false" [config]="item"></app-radio>
                   <app-dropdown *ngSwitchCase="'dropdown'" [editable]="false"  [config]="item"></app-dropdown>
                   <app-checkbox *ngSwitchCase="'checkbox'" [editable]="false" [config]="item"></app-checkbox>
+                  <app-divider *ngSwitchCase="'divider'" [editable]="false"  [config]="item" [idx]="idx" ></app-divider>
+                  <app-spacer *ngSwitchCase="'spacer'" [editable]="false" [config]="item" [idx]="idx" ></app-spacer>
                 </div>
               </div>
               <div *ngIf="!item?.type" class="  opacity-100 hover:opacity-100 min-h-10 flex flex-col items-center justify-center "></div>
