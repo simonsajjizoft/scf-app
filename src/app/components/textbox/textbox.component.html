@@ -1,6 +1,6 @@
-<div class="px-2 py-2 w-full flex flex-col gap-2 relative  ">
+<div class="px-2 py-2  w-full flex flex-col gap-2 relative  ">
   <!-- <div class="flex justify-end e"><mat-icon class="text-gray-400 text-base leading-4">edit</mat-icon></div> -->
-  <div *ngIf="editable" class="absolute -top-4 -right-1 flex justify-end gap-2" >
+  <div *ngIf="editable" class="absolute -top-4 -right-2 flex justify-end gap-2" >
     <mat-icon class="text-slate-500 text-sm" [matMenuTriggerFor]="configMenu">edit</mat-icon>
     <mat-icon (click)="deleteItem()" class="text-slate-500 text-sm" >delete</mat-icon>
   </div>  
@@ -39,11 +39,11 @@
     </div>
   </mat-menu>
 
-  <cite [contentEditable]="editable" (input)="editLabelText($event,label )" [innerText]="config?.label"
+  <!-- <cite [contentEditable]="editable" (input)="editLabelText($event,label )" [innerText]="config?.label"
     (focusout)="changeLabelText(label?.innerText)" #label
     class="w-full  p-2 border-2 border-white focus:border-2 min-h-10 focus:border-blue-500   outline-none font-medium text-sm"
-    placeholder="Click here to edit label" [spellcheck]="false"></cite>
+    placeholder="Click here to edit label" [spellcheck]="false"></cite> -->
   <input  (click)="selectField()" (focusout)="unselectField()" type="text"
     [placeholder]="placeholder" [ngClass]="config?.selected ? 'border-blue-500': 'border-gray-300'"
-    class="border-2  outline-none rounded-md w-full min-h-8 px-2 py-2">
+    class="border-2  outline-none rounded-md w-full min-h-8 px-2 py-1">
 </div>

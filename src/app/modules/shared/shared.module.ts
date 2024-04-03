@@ -27,6 +27,9 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import { FormPreviewComponent } from 'src/app/components/form-preview/form-preview.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import { LabelComponent } from 'src/app/components/label/label.component';
+import { SpacerComponent } from 'src/app/components/spacer/spacer.component';
+import { DividerComponent } from 'src/app/components/divider/divider.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +48,9 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
     DropdownComponent,
     CheckboxComponent,
     FormPreviewComponent,
+    LabelComponent,
+    SpacerComponent,
+    DividerComponent
         
   ],
   imports: [
@@ -92,7 +98,10 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
     MatTooltipModule,
     FormPreviewComponent,
     MatDialogModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    LabelComponent,
+    SpacerComponent,
+    DividerComponent
   ]
 })
 export class SharedModule { }

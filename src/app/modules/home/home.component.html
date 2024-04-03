@@ -1,7 +1,8 @@
 <div class=" h-screen w-full bg-gray-100 relative">
-    <div class="hdr sticky top-0 c-primary z-20  w-full px-3  flex items-center justify-between  bg-gray-100">
+    <div class="hdr sticky top-0 c-primary z-20  w-full px-3  flex items-center justify-between  bg-gray-50">
         <div class="font-semibold text-2xl py-2 flex items-end gap-3"><img src="assets/icons/Group 2699.png"
                 class="w-12 h-12" alt="" srcset=""><span class="pl-4 font-semibold c-primary opacity-90 pb-0.5">SCF</span> </div>
+        <div class="rounded-full p-2 font-semibold bg-violet-100 ring ring-violet-200 max-w-9 max-h-9 h-9 w-9 flex items-center justify-center">SJ</div>
     </div>
     <div class="header sticky top-16 flex justify-between text-sm z-20 bg-white">
         <div class="font-semibold w-80 bg-primary-color px-6 py-4 text-white flex justify-end items-center text-base gap-2">
@@ -67,8 +68,8 @@
                                         <div class="px-5 pt-3">Content Blocks</div>
                                         <div class="grid grid-cols-2 gap-3 py-3   mb-4 px-5">
                                             <div (click)="addLayout(design)" *ngFor="let design of designs"
-                                                class="h-24   ring-2 ring-gray-200  shadow-sm border-gray-100 flex items-center gap-1 px-2 py-2 bg-zinc-50 hover:bg-zinc-100 cursor-pointer">
-                                                <div *ngFor="let item of design?.divs" class=" bg-slate-300 h-4" [ngClass]="{
+                                                class="h-20   ring-2 ring-gray-200  shadow-sm border-gray-100 flex items-center gap-1 px-2 py-2 bg-zinc-50 hover:bg-zinc-100 cursor-pointer">
+                                                <div *ngFor="let item of design?.divs" class=" bg-slate-300 h-3" [ngClass]="{
                                                 'w-full':design?.divs?.length==1,
                                                 'w-1/2':design?.divs?.length==2,
                                                 'w-1/3':design?.divs?.length==3,
@@ -78,6 +79,18 @@
                                         </div>
         
                                         <div class="text-xs mt-2 font-semibold text-gray-900 px-2 border-t-2 py-2 border-gray-100">
+                                            <div
+                                                class="px-2 py-2.5 hover:bg-neutral-100 cursor-pointer rounded-sm flex items-center gap-2">
+                                                <div class="w-4 h-4 "><img src="assets/icons/divider.png" class="w-full h-full opacity-60"
+                                                        alt="" srcset=""></div>
+                                                Divider
+                                            </div>
+                                            <div
+                                                class="px-2 py-2.5 hover:bg-neutral-100 cursor-pointer rounded-sm flex items-center gap-2">
+                                                <div class="w-4 h-4 "><img src="assets/icons/spacer.png" class="w-full h-full opacity-60"
+                                                        alt="" srcset=""></div>
+                                                Spacer
+                                            </div>
                                             <div
                                                 class="px-2 py-2.5 hover:bg-neutral-100 cursor-pointer rounded-sm flex items-center gap-2">
                                                 <div class="w-4 h-4 "><img src="assets/icons/radio.png" class="w-full h-full opacity-60"

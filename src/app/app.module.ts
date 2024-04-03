@@ -22,9 +22,12 @@ import { DropdownComponent } from './components/dropdown/dropdown.component';
 import { CheckboxComponent } from './components/checkbox/checkbox.component';
 import { FormPreviewComponent } from './components/form-preview/form-preview.component';
 import { FormsModule } from '@angular/forms';
+import { LabelComponent } from './components/label/label.component';
+import { DividerComponent } from './components/divider/divider.component';
+import { SpacerComponent } from './components/spacer/spacer.component';
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,

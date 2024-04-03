@@ -29,7 +29,7 @@
      
     </div>
   </mat-menu>
-  <cite [contentEditable]="editable" (input)="editLabelText($event,label )" [innerText]="config?.label" (focusout)="changeLabelText(label?.innerText)" #label class="w-full  p-2 min-h-10 border-2 border-white focus:border-2 focus:border-blue-500   outline-none font-medium text-sm" placeholder="Click here to edit label" [spellcheck]="false"></cite>
+  <!-- <cite [contentEditable]="editable" (input)="editLabelText($event,label )" [innerText]="config?.label" (focusout)="changeLabelText(label?.innerText)" #label class="w-full  p-2 min-h-10 border-2 border-white focus:border-2 focus:border-blue-500   outline-none font-medium text-sm" placeholder="Click here to edit label" [spellcheck]="false"></cite> -->
     <div aria-labelledby="example-radio-group-label  " class="flex flex-col w-full cursor-default text-sm">
         <div class=" py-0.5 items-center flex gap-2 w-full" *ngFor="let opt of config?.values;let i = index" [value]="opt">
           <input type="checkbox" class="h-4 w-4  accent-blue-500" name="option" id="">
