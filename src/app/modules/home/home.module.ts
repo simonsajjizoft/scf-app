@@ -8,6 +8,7 @@ import { MatTreeModule } from '@angular/material/tree';
 import { MatIconModule } from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatTabsModule} from '@angular/material/tabs';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import {MatTabsModule} from '@angular/material/tabs';
     MatIconModule,
     MatButtonModule,
     MatTabsModule,
-    SharedModule
+    SharedModule,
+    FormsModule
 
   ]
 })

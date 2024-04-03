@@ -21,6 +21,7 @@ import { RadioComponent } from './components/radio/radio.component';
 import { DropdownComponent } from './components/dropdown/dropdown.component';
 import { CheckboxComponent } from './components/checkbox/checkbox.component';
 import { FormPreviewComponent } from './components/form-preview/form-preview.component';
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent
@@ -28,6 +29,7 @@ import { FormPreviewComponent } from './components/form-preview/form-preview.com
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     BrowserAnimationsModule,
     SharedModule,
   ],

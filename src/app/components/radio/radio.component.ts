@@ -17,6 +17,7 @@ export class RadioComponent {
   @Output() fieldValueChange = new EventEmitter();
   @Output() checkItemEvent = new EventEmitter();
   @Output() swapElement = new EventEmitter();
+  @Output() deleteItemEvent = new EventEmitter();
   showProperties:any;
   constructor(private changeDetectorRef: ChangeDetectorRef,
     private renderer: Renderer2) {
@@ -30,7 +31,7 @@ export class RadioComponent {
   }
 
   addOption(idx: any) {
-    this.config?.values.push('Option ' + (this.config?.values?.length + 1))
+    this.config?.values.push('option ' + (this.config?.values?.length + 1))
   }
 
   deleteOption(opt:any) {
@@ -82,6 +83,10 @@ export class RadioComponent {
 
    changeLabelText(ev:any){
     this.config.label = ev;
+   }
+
+   deleteItem(){
+    this.deleteItemEvent.emit(this.idx);
    }
    
 }

@@ -1,6 +1,35 @@
 
-<div class=" px-2 py-2 flex flex-col gap-2 w-full">
-      <cite [contentEditable]="editable" (input)="editLabelText($event,label )" [innerText]="config?.label" (focusout)="changeLabelText(label?.innerText)" #label class="w-full  p-2 border-2 border-white focus:border-2 focus:border-blue-500   outline-none font-medium text-sm" placeholder="Click here to edit label"  [spellcheck]="false"></cite>
+<div class=" px-2 py-2 flex flex-col gap-2 w-full relative" >
+  <div *ngIf="editable" class="absolute -top-4 -right-1 flex justify-end gap-2" >
+    <mat-icon class="text-slate-500 text-sm" [matMenuTriggerFor]="configMenu">edit</mat-icon>
+    <mat-icon (click)="deleteItem()" class="text-slate-500 text-sm" >delete</mat-icon>
+  </div>  <mat-menu #configMenu="matMenu" style="width: 640px!important;height: max-content!important;">
+    <div (click)="$event.stopPropagation();"
+      class=" min-h-14 max-h-24 w-scr overflow-y-auto flex items-center flex-wrap gap-3  bg-white z-10 rounded-md p-5 text-xs">
+      <div class="font-semibold">Style</div>
+      <div class="inline-block relative w-32 ">
+        <select
+          class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-3.5 py-1 pr-8 rounded  leading-tight focus:outline-none focus:shadow-outline">
+          <option *ngFor="let value of [1]" class="px-3.5 py-3">Style 1</option>
+        </select>
+        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3.5 text-gray-700">
+          <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+            <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+          </svg>
+        </div>
+      </div>
+      <div class="font-semibold">Required</div>
+      <mat-slide-toggle class="example-margin" [color]="'primary'" (change)="config.required = $event?.checked"
+        [checked]="config?.required">
+      </mat-slide-toggle>
+      <div class="font-semibold">Allow Input</div>
+      <mat-slide-toggle class="example-margin" [color]="'primary'" (change)="config.allowInput = $event?.checked"
+        [checked]="config?.allowInput">
+      </mat-slide-toggle>
+     
+    </div>
+  </mat-menu>
+      <cite [contentEditable]="editable" (input)="editLabelText($event,label )" [innerText]="config?.label" (focusout)="changeLabelText(label?.innerText)" #label class="w-full  p-2 border-2 border-white focus:border-2 min-h-10 focus:border-blue-500   outline-none font-medium text-sm" placeholder="Click here to edit label"  [spellcheck]="false"></cite>
     <div>
       <mat-radio-group  name="'name'" aria-label="Select an option" class="flex  items-center flex-wrap gap-6 text-sm font-medium">
         <div *ngFor="let option of config?.values;let idx=index" class="flex items-center gap-1">

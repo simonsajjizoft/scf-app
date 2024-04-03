@@ -26,6 +26,7 @@ import { CheckboxComponent } from 'src/app/components/checkbox/checkbox.componen
 import {MatTooltipModule} from '@angular/material/tooltip';
 import { FormPreviewComponent } from 'src/app/components/form-preview/form-preview.component';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatButtonModule,
     MatProgressBarModule,
     MatTooltipModule,
-    MatDialogModule
+    MatDialogModule,
+    MatSlideToggleModule
     
     
 
@@ -89,7 +91,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     CheckboxComponent,
     MatTooltipModule,
     FormPreviewComponent,
-    MatDialogModule
+    MatDialogModule,
+    MatSlideToggleModule
   ]
 })
 export class SharedModule { }

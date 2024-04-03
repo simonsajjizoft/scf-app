@@ -9,8 +9,10 @@ export class TextboxComponent {
   @Input() placeholder:any;
   @Input() config:any;
   @Input() editable:any;
+  @Input() idx:any;
   @Output() selectFieldEvent = new EventEmitter();
   @Output() unselectFieldEvent = new EventEmitter();
+  @Output() deleteItemEvent = new EventEmitter();
   @ViewChild('field') field: ElementRef|any;
   @ViewChild('menu') menu: ElementRef|any;
   showConfig:boolean = false;
@@ -41,6 +43,18 @@ export class TextboxComponent {
 
    changeLabelText(ev:any){
     this.config.label = ev;
+   }
+
+   changeMinText(ev:any){
+    this.config.minLength = ev?.target?.value?.trim();
+  }
+
+  changeMaxText(ev:any){
+    this.config.maxLength = ev?.target?.value?.trim();
+  }
+
+  deleteItem(){
+    this.deleteItemEvent.emit(this.idx);
    }
 
 }

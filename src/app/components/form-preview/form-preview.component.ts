@@ -8,10 +8,14 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 })
 export class FormPreviewComponent {
   sections:any;
+  formTitle:any;
+  formDescription:any;
   constructor( 
     public dialogRef: MatDialogRef<FormPreviewComponent>, 
     @Inject(MAT_DIALOG_DATA) public data: any) {
       this.sections = data?.sections;
+      this.formTitle = data?.formTitle;
+      this.formDescription = data?.formDescription
      } 
 
      onCancel(): void { 
