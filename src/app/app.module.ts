@@ -21,9 +21,13 @@ import { RadioComponent } from './components/radio/radio.component';
 import { DropdownComponent } from './components/dropdown/dropdown.component';
 import { CheckboxComponent } from './components/checkbox/checkbox.component';
 import { FormPreviewComponent } from './components/form-preview/form-preview.component';
+import { TextAreaComponent } from './components/text-area/text-area.component';
+import { DatePickerComponent } from './components/date-picker/date-picker.component';
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TextAreaComponent,
+    DatePickerComponent
   ],
   imports: [
     BrowserModule,
