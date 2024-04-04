@@ -64,7 +64,7 @@
                     </div>
         
                     <ng-container *ngFor="let section of sections;let i=index">
-                        <app-section [cols]="section?.cols" [divs]="section?.divs" [config]="section" [idx]="i" (unSelectConfigEvent)="unSelectConfig($event)"  (selectConfigEvent)="selectConfig($event)"></app-section>
+                        <app-section [cols]="section?.cols" [divs]="section?.divs" [config]="section" [idx]="i" (unSelectConfigEvent)="unSelectConfig($event)"  (selectConfigEvent)="selectConfig($event)" (unSelectSectionEvent)="unSelectSection($event)" (selectSectionEvent)="selectSection($event)" (deleteSectionEvent)="deleteSection($event)"></app-section>
                     </ng-container>
         
                 </div>

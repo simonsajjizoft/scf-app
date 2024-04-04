@@ -1,26 +1,33 @@
-<div class="grid px-6 py-6 border-b-2 border-dashed border-gray-100 gap-4 mb-6 relative"
-  [ngClass]="cols==1 ? 'grid-cols-1' : (cols==2 ? 'grid-cols-2' : (cols==3 ? 'grid-cols-3' : 'grid-cols-4'))">
-  <ng-container *ngFor="let item of config?.divs;let idx=index">
-    <div *ngIf="item?.type"
+<div #section (click)="selectSection();" (focusout)="config.selected=false"  class="cursor-pointer grid px-6 py-6  gap-4 mb-6 relative"
+   [ngClass]="{'border-2 border-blue-500':config?.selected,'border-t-2 border-b-2 border-dashed border-gray-100':!config?.selected,
+ 'grid-cols-1' : cols==1, 'grid-cols-2':cols==2,'grid-cols-3':cols==3,'grid-cols-4':cols==4}">
+  <div  class="border rounded-3xl px-5 py-1 bg-white w-max shadow-md absolute -top-8 right-2" *ngIf="config?.selected" >
+    <div (click)="deleteSection(this.idx)"  class="font-semibold text-gray-500 text-xs flex items-center " matTooltip="Delete Section">
+      <mat-icon class="leading-6 text-lg">delete_outline</mat-icon>
+      Delete
+    </div>
+  </div>
+  <ng-container *ngFor="let item of config?.divs;let i=index">
+    <div *ngIf="item?.type" (click)="config.selected=false"
       class="cursor-pointer opacity-90 hover:opacity-100 h-max flex flex-col j py-3  border-dashed border-2 border-gray-100">
       <div class="w-full px-2 py-2" [ngSwitch]="item?.type">
         <app-textbox *ngSwitchCase="'textbox'" [editable]="true" [placeholder]="item?.placeholder" [config]="item"
           (unselectFieldEvent)="unSelectConfig($event)" (selectFieldEvent)="selectConfig($event)"
-          (deleteItemEvent)="deleteItem($event)" [idx]="idx"></app-textbox>
+          (deleteItemEvent)="deleteItem($event)" [idx]="i"></app-textbox>
         <app-radio *ngSwitchCase="'radio'" [editable]="true" [config]="item" (deleteItemEvent)="deleteItem($event)"
-          [idx]="idx"></app-radio>
+          [idx]="i"></app-radio>
         <app-dropdown *ngSwitchCase="'dropdown'" [editable]="true" [config]="item"
-          (deleteItemEvent)="deleteItem($event)" [idx]="idx"></app-dropdown>
+          (deleteItemEvent)="deleteItem($event)" [idx]="i"></app-dropdown>
         <app-checkbox *ngSwitchCase="'checkbox'" [editable]="true" [config]="item"
-          (deleteItemEvent)="deleteItem($event)" [idx]="idx"></app-checkbox>
-        <app-label *ngSwitchCase="'label'" [editable]="true" [config]="item" [idx]="idx"  (deleteItemEvent)="deleteItem($event)"></app-label>
-        <app-divider *ngSwitchCase="'divider'" [editable]="true" [config]="item" [idx]="idx" ></app-divider>
-        <app-spacer *ngSwitchCase="'spacer'" [editable]="true" [config]="item" [idx]="idx" ></app-spacer>
-        <app-text-area *ngSwitchCase="'textarea'" [editable]="true" [config]="item" [idx]="idx"  (deleteItemEvent)="deleteItem($event)"></app-text-area>
-        <app-date-picker *ngSwitchCase="'datepicker'" [editable]="true" [config]="item" [idx]="idx"  (deleteItemEvent)="deleteItem($event)"></app-date-picker>
+          (deleteItemEvent)="deleteItem($event)" [idx]="i"></app-checkbox>
+        <app-label *ngSwitchCase="'label'" [editable]="true" [config]="item" [idx]="i"  (deleteItemEvent)="deleteItem($event)"></app-label>
+        <app-divider *ngSwitchCase="'divider'" [editable]="true" [config]="item" [idx]="i" [sectionIdx]="idx"  ></app-divider>
+        <app-spacer *ngSwitchCase="'spacer'" [editable]="true" [config]="item" [idx]="i" [sectionIdx]="idx"></app-spacer>
+        <app-text-area *ngSwitchCase="'textarea'" [editable]="true" [config]="item" [idx]="i"  (deleteItemEvent)="deleteItem($event)"></app-text-area>
+        <app-date-picker *ngSwitchCase="'datepicker'" [editable]="true" [config]="item" [idx]="i"  (deleteItemEvent)="deleteItem($event)"></app-date-picker>
       </div>
     </div>
-    <div *ngIf="!item?.type"
+    <div *ngIf="!item?.type" (click)="config.selected=false"
       class="cursor-pointer rounded-sm bg-slate-100 opacity-100 hover:opacity-100 min-h-28 flex flex-col items-center justify-center border-dashed border-2 border-gray-300">
       <img [matMenuTriggerFor]="menu" src="assets/icons/add.png" class="opacity-65" width="50px" height="50px" alt=""
         srcset="">

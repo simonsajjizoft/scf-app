@@ -1,5 +1,6 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Output, Renderer2, ViewChild } from '@angular/core';
 import { Input } from '@angular/core';
+import { MatMenuTrigger } from '@angular/material/menu';
 
 @Component({
   selector: 'app-section',
@@ -13,9 +14,22 @@ export class SectionComponent {
   @Input() idx: any;
   @Output() selectConfigEvent = new EventEmitter();
   @Output() unSelectConfigEvent = new EventEmitter();
+  @Output() deleteSectionEvent = new EventEmitter();
+  @Output() selectSectionEvent = new EventEmitter();
+  @Output() unSelectSectionEvent = new EventEmitter();
+  @ViewChild('section') section:ElementRef | any;
+  showSectionOptions:boolean = false;
+
+  constructor(private renderer: Renderer2){
+    this.renderer.listen('window', 'click',(e:Event)=>{
+     if(e.target !== this.section?.nativeElement){
+         this.config.selected=false;
+     }
+ });
+
+  }
 
   appendField(field: any, item: any) {
-
     if (field == 'dropdown') {
       item.type = 'dropdown';
       item.label = "";
@@ -105,11 +119,28 @@ export class SectionComponent {
     });
   }
 
+  deleteSection(idx:any){
+    this.deleteSectionEvent.emit(idx)
+  }
+
   deletePropertiesExceptType(obj:any) {
     for (const [key, value] of Object.entries(obj))  {
       if (key !== 'type') delete obj[key];
       else obj.type = '';
     }
+  }
+
+  selectSection(){
+   if(!this.config.selected){
+    this.selectSectionEvent.emit(this.config);
+   } 
+   else{
+    this.unSelectSectionEvent.emit(this.config)
+   } 
+  }
+
+  unSelectSection(){
+    this.unSelectSectionEvent.emit(this.config)
   }
 
 }

@@ -17,10 +17,10 @@ export class HomeComponent {
   ];
   layoutView = this.layouts[1];
   designs = [
-    { cols: 1, divs: [{ type: '' }] },
-    { cols: 2, divs: [{ type: '' }, { type: '' }] },
-    { cols: 3, divs: [{ type: '' }, { type: '' }, { type: '' }] },
-    { cols: 4, divs: [{ type: '' }, { type: '' }, { type: '' }, { type: '' }] }
+    { cols: 1, divs: [{ type: '' }] ,selected:false},
+    { cols: 2, divs: [{ type: '' }, { type: '' }] ,selected:false},
+    { cols: 3, divs: [{ type: '' }, { type: '' }, { type: '' }],selected:false },
+    { cols: 4, divs: [{ type: '' }, { type: '' }, { type: '' }, { type: '' }],selected:false }
   ];
   sections: any = []
   sidebarWidth: Number | any = 350;
@@ -107,11 +107,33 @@ export class HomeComponent {
     this.sections.push(tempArray);
   }
 
+  deleteSection(idx:any){
+    console.log(idx)
+    this.sections.map((section: any,i:any) => {
+      if (i==idx) this.sections.splice(i,1)
+    });
+  console.log(this.sections)
+  }
+
   addSpacer(){
-    let obj = { cols: 1, divs: [{ type: 'spacer' }] };
+    let obj = { cols: 1, divs: [{ type: 'spacer',height:'32' }] };
     let tempArray = JSON.parse(JSON.stringify(obj));
     tempArray.id = this.sections.length;
     this.sections.push(tempArray);
+  }
+
+  selectSection(section:any){
+    this.sections.map((section:any)=>{
+      section.selected = false;
+    })
+    section.selected = true;
+  }
+
+  unSelectSection(section:any){
+    this.sections.map((section:any)=>{
+      section.selected = false;
+    })
+    section.selected = false;
   }
 
 
