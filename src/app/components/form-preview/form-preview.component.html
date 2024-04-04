@@ -17,6 +17,8 @@
                   <app-checkbox *ngSwitchCase="'checkbox'" [editable]="false" [config]="item"></app-checkbox>
                   <app-divider *ngSwitchCase="'divider'" [editable]="false"  [config]="item" [idx]="idx" ></app-divider>
                   <app-spacer *ngSwitchCase="'spacer'" [editable]="false" [config]="item" [idx]="idx" ></app-spacer>
+                  <app-text-area *ngSwitchCase="'textarea'" [editable]="false" [config]="item" [idx]="idx"  ></app-text-area>
+                  <app-date-picker *ngSwitchCase="'datepicker'" [editable]="false" [config]="item" [idx]="idx"></app-date-picker>
                 </div>
               </div>
               <div *ngIf="!item?.type" class="  opacity-100 hover:opacity-100 min-h-10 flex flex-col items-center justify-center "></div>
