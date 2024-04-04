@@ -1,11 +1,22 @@
 <div class=" h-screen w-full bg-gray-100 relative">
     <div class="hdr sticky top-0 c-primary z-20  w-full px-3  flex items-center justify-between  bg-gray-50">
-        <div class="font-semibold text-2xl py-2 flex items-end gap-3"><img src="assets/icons/Group 2699.png"
-                class="w-12 h-12" alt="" srcset=""><span class="pl-4 font-semibold c-primary opacity-90 pb-0.5">SCF</span> </div>
-        <div class="rounded-full p-2 font-semibold bg-violet-100 ring ring-violet-200 max-w-9 max-h-9 h-9 w-9 flex items-center justify-center">SJ</div>
+        <div class="font-semibold text-xl py-1 flex items-end gap-1">
+            <img src="assets/icons/Group 2699.png"
+                class="w-16 h-10 border-r-2 border-gray-300 px-3" alt="" srcset="">
+
+                <span class="pl-4 font-semibold c-primary opacity-90 pb-0.5">SCF</span> </div>
+        <div class="flex justify-end items-center gap-4">
+            <div class="flex items-center ">
+                <mat-icon class="rounded-full text-gray-400 border-gray-400 leading-6">person_outline</mat-icon>
+                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                    <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                  </svg>
+            </div>
+            <div class=" px-3 py-1.5 font-medium text-xs bg-orange-600 text-white flex items-center justify-center">myGS1</div>
+        </div>
     </div>
-    <div class="header sticky top-16 flex justify-between text-sm z-20 bg-white">
-        <div class="font-semibold w-80 bg-primary-color px-6 py-4 text-white flex justify-end items-center text-base gap-2">
+    <div class="header sticky top-12 flex justify-between text-sm z-20 bg-white">
+        <div class="font-semibold w-80 bg-primary-color px-6 py-1 text-white flex justify-end items-center text-sm gap-2">
             <mat-icon>add_circle_outline</mat-icon>Add Attribute </div>
         <div class="font-semibold relative flex items-center px-4" #layoutModal>
             <div class="flex justify-end items-center gap-8 px-3">
@@ -17,22 +28,22 @@
         </div>
     </div>
     <div class="w-full flex gap-4 h-screen-custom overflow-hidden relative">
-        <div class="bg-primary-color w-28 pt-5 font-light">
+        <div class="bg-primary-color w-20 pt-5 font-light">
             <div class="py-4">
-                <div class="text-gray-50 flex flex-col items-center justify-center text-center gap-2 text-sm px-3 py-3">
-                    <mat-icon class="text-3xl leading-4 pr-7">home_outline</mat-icon>
+                <div class="text-gray-50 flex flex-col items-center justify-center text-center gap-1 text-xs px-1 py-3">
+                    <mat-icon class="text-2xl leading-4 pr-5">home_outline</mat-icon>
                     Home
                 </div>
             </div>
             <div class="py-4">
-                <div class="text-gray-50 flex flex-col items-center justify-center text-center gap-2  text-sm px-3 py-3">
-                    <mat-icon class="text-3xl leading-4 pr-7">share</mat-icon>
+                <div class="text-gray-50 flex flex-col items-center justify-center text-center gap-1 text-xs px-1 py-3">
+                    <mat-icon class="text-2xl leading-4 pr-5">share</mat-icon>
                     Publications
                 </div>
             </div>
             <div class="py-4">
-                <div class="text-gray-50 flex flex-col items-center justify-center text-center gap-2  text-sm px-3 py-3">
-                    <mat-icon class="text-3xl leading-4 pr-7">help_outline</mat-icon>
+                <div class="text-gray-50 flex flex-col items-center justify-center text-center gap-1 text-xs px-1 py-3">
+                    <mat-icon class="text-2xl leading-4 pr-5">help_outline</mat-icon>
                     Help Library
                 </div>
             </div>
@@ -40,15 +51,15 @@
         <div class="flex-1 flex py-5 gap-4">
             <div class="  resize-x  overflow-y-auto  " [ngSwitch]="layoutView.view" style="flex:1">
                 <div class="bg-white h-max min-h-full" >
-                    <div class="bg-blue-50  px-3 py-3 mb-4">
+                    <div class="bg-white px-3 pt-4 pb-8 mb-4 border-b-2 border-gray-200 ">
                         <div class="font-bold text-base px-3 py-3 flex justify-between">CREATE FORM 
                             
                         </div>
                         <div class="px-2"><input type="text" [(ngModel)]="formTitle"
-                                class="border-2 rounded-md bg-transparent font-semibold placeholder:text-gray-400 placeholder:font-semibold border-gray-300 w-full px-3 py-1 mt-2 opacity-90 focus:opacity-100 outline-none focus:border-blue-600"
+                                class="border-2 rounded-sm bg-transparent font-semibold placeholder:text-gray-400 placeholder:font-semibold border-zinc-300 w-full px-3 py-1 mt-2 opacity-90 focus:opacity-100 outline-none focus:border-blue-400"
                                 name="" placeholder="Form Title" id=""></div>
                         <div class="px-2"><textarea type="text" [(ngModel)]="formDescription"
-                                class="border-2 rounded-md bg-transparent font-semibold placeholder:text-gray-400 placeholder:font-semibold border-gray-300 w-full px-3 py-1 mt-2 opacity-90 focus:opacity-100 outline-none focus:border-blue-600"
+                                class="border-2 rounded-sm bg-transparent font-semibold placeholder:text-gray-400 placeholder:font-semibold border-zinc-300 w-full px-3 py-1 mt-2 opacity-90 focus:opacity-100 outline-none focus:border-blue-400"
                                 name="" placeholder="Description" id=""></textarea></div>
                     </div>
         

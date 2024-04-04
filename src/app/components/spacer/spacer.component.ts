@@ -8,6 +8,7 @@ import { Component, Input } from '@angular/core';
 export class SpacerComponent {
   @Input() config:any;
   @Input() idx:any;
+  @Input() editable:any;
 
 
 }
