@@ -6,39 +6,45 @@ import { Component, ElementRef, EventEmitter, Input, Output, Renderer2, ViewChil
   styleUrls: ['./text-area.component.scss']
 })
 export class TextAreaComponent {
-  @Input() placeholder:any;
-  @Input() config:any;
-  @Input() editable:any;
+  @Input() placeholder: any;
+  @Input() config: any;
+  @Input() editable: any;  
+  @Input() idx: any;
+  @Output() deleteItemEvent = new EventEmitter();
   @Output() selectFieldEvent = new EventEmitter();
   @Output() unselectFieldEvent = new EventEmitter();
-  @ViewChild('field') field: ElementRef|any;
-  @ViewChild('menu') menu: ElementRef|any;
-  showConfig:boolean = false;
+  @ViewChild('field') field: ElementRef | any;
+  @ViewChild('menu') menu: ElementRef | any;
+  showConfig: boolean = false;
 
-  constructor(private renderer: Renderer2){
-   
+  constructor(private renderer: Renderer2) {
+
   }
 
-  selectField(){
-    if(this.editable){
+  selectField() {
+    if (this.editable) {
       this.showConfig = true;
       this.selectFieldEvent.emit(this.config);
     }
 
   }
-  unselectField(){
-    if(this.editable) this.unselectFieldEvent.emit(this.config);
+  unselectField() {
+    if (this.editable) this.unselectFieldEvent.emit(this.config);
   }
 
-  changePlaceholderText(ev:any){
+  changePlaceholderText(ev: any) {
     this.config.placeholder = ev?.target?.value?.trim();
   }
 
-  editLabelText(ev:any,value:any){
-    if(value?.innerText && value?.innerText?.trim() == '') value.innerHTML = '';
-   }
+  editLabelText(ev: any, value: any) {
+    if (value?.innerText && value?.innerText?.trim() == '') value.innerHTML = '';
+  }
 
-   changeLabelText(ev:any){
+  changeLabelText(ev: any) {
     this.config.label = ev;
-   }
+  }
+
+  deleteItem() {
+    this.deleteItemEvent.emit(this.idx);
+  }
 }

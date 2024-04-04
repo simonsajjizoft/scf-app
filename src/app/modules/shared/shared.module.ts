@@ -30,6 +30,8 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { LabelComponent } from 'src/app/components/label/label.component';
 import { SpacerComponent } from 'src/app/components/spacer/spacer.component';
 import { DividerComponent } from 'src/app/components/divider/divider.component';
+import { TextAreaComponent } from 'src/app/components/text-area/text-area.component';
+import { DatePickerComponent } from 'src/app/components/date-picker/date-picker.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +52,9 @@ import { DividerComponent } from 'src/app/components/divider/divider.component';
     FormPreviewComponent,
     LabelComponent,
     SpacerComponent,
-    DividerComponent
+    DividerComponent,
+    TextAreaComponent,
+    DatePickerComponent
         
   ],
   imports: [
@@ -101,7 +105,9 @@ import { DividerComponent } from 'src/app/components/divider/divider.component';
     MatSlideToggleModule,
     LabelComponent,
     SpacerComponent,
-    DividerComponent
+    DividerComponent,
+    TextAreaComponent,
+    DatePickerComponent
   ]
 })
 export class SharedModule { }

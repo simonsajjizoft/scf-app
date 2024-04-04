@@ -54,6 +54,28 @@ export class SectionComponent {
       item.maxLength = "";
       item.allowInput = true;
     }
+    else if (field == 'textarea') {
+      item.type = field;
+      item.placeholder = 'Placeholder';
+      item.label = "";
+      item.selected = false;
+      item.checked = false;
+      item.required = false;
+      item.minLength = "";
+      item.maxLength = "";
+      item.allowInput = true;
+    }
+    else if (field == 'datepicker') {
+      item.type = field;
+      item.placeholder = 'Placeholder';
+      item.label = "";
+      item.selected = false;
+      item.checked = false;
+      item.required = false;
+      item.minLength = "";
+      item.maxLength = "";
+      item.allowInput = true;
+    }
     else {
       item.type = field;
       item.label = "";

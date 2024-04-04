@@ -16,6 +16,8 @@
         <app-label *ngSwitchCase="'label'" [editable]="true" [config]="item" [idx]="idx"  (deleteItemEvent)="deleteItem($event)"></app-label>
         <app-divider *ngSwitchCase="'divider'" [editable]="true" [config]="item" [idx]="idx" ></app-divider>
         <app-spacer *ngSwitchCase="'spacer'" [editable]="true" [config]="item" [idx]="idx" ></app-spacer>
+        <app-text-area *ngSwitchCase="'textarea'" [editable]="true" [config]="item" [idx]="idx"  (deleteItemEvent)="deleteItem($event)"></app-text-area>
+        <app-date-picker *ngSwitchCase="'datepicker'" [editable]="true" [config]="item" [idx]="idx"  (deleteItemEvent)="deleteItem($event)"></app-date-picker>
       </div>
     </div>
     <div *ngIf="!item?.type"
@@ -43,6 +45,15 @@
         <button (click)="appendField('checkbox',item)" mat-menu-item class="flex items-center gap-1">
           <div class="w-5 h-5"><img src="assets/icons/check.png" class="w-full h-full" alt="" srcset=""></div>
           <span>Checkbox</span>
+        </button>
+        <button (click)="appendField('textarea',item)" mat-menu-item class="flex items-center gap-1">
+          <div class="w-5 h-5"><img src="assets/icons/textarea.png" class="w-full h-full" alt="" srcset=""></div>
+          <span>Textarea</span>
+        </button>
+
+        <button (click)="appendField('datepicker',item)" mat-menu-item class="flex items-center gap-1">
+          <div class="w-5 h-5"><img src="assets/icons/calendar.png" class="w-full h-full" alt="" srcset=""></div>
+          <span>Date</span>
         </button>
 
       </mat-menu>
