@@ -7,40 +7,43 @@ import { Input } from '@angular/core';
   styleUrls: ['./section.component.scss']
 })
 export class SectionComponent {
-  @Input() cols:any;
-  @Input() divs:any;
-  @Input() config:any;
-  @Input() idx:any;
+  @Input() cols: any;
+  @Input() divs: any;
+  @Input() config: any;
+  @Input() idx: any;
   @Output() selectConfigEvent = new EventEmitter();
   @Output() unSelectConfigEvent = new EventEmitter();
 
-  appendField(field:any,item:any){
+  appendField(field: any, item: any) {
 
-    if(field == 'dropdown'){
+    if (field == 'dropdown') {
       item.type = 'dropdown';
       item.label = "";
       item.selected = false;
       item.checked = false;
-      item.values = ['Select Option','Option A','Option B'];
+      item.values = ['Select Option', 'Option A', 'Option B'];
       item.required = false;
+      item.allowInput = true;
     }
-    else if(field == 'checkbox'){
+    else if (field == 'checkbox') {
       item.type = 'checkbox';
       item.label = "";
       item.selected = false;
       item.checked = false;
       item.values = ["Checkbox 1"];
       item.required = false;
+      item.allowInput = true;
     }
-    else if(field == 'radio'){
+    else if (field == 'radio') {
       item.type = 'radio';
       item.label = "";
       item.selected = false;
       item.checked = false;
-      item.values = ['Option A','Option B'];
+      item.values = ['option A', 'option B'];
       item.required = false;
+      item.allowInput = true;
     }
-    else if(field == 'textbox'){
+    else if (field == 'textbox') {
       item.type = field;
       item.placeholder = 'Placeholder';
       item.label = "";
@@ -49,45 +52,42 @@ export class SectionComponent {
       item.required = false;
       item.minLength = "";
       item.maxLength = "";
+      item.allowInput = true;
     }
-    else if(field == 'textarea'){
-      item.type = field;
-      item.placeholder = 'Placeholder';
-      item.label = "";
-      item.selected = false;
-      item.checked = false;
-      item.required = false;
-      item.minLength = "";
-      item.maxLength = "";
-    }
-    else if(field == 'datepicker'){
-      item.type = field;
-      item.placeholder = 'Placeholder';
-      item.label = "";
-      item.selected = false;
-      item.checked = false;
-      item.required = false;
-      item.minLength = "";
-      item.maxLength = "";
-      item.format = '';
-    }
-    else{
+    else {
       item.type = field;
       item.label = "";
       item.selected = false;
       item.checked = false;
       item.required = false;
+      item.allowInput = true;
     }
   }
 
-  selectConfig(config:any){
+  selectConfig(config: any) {
     this.selectConfigEvent.emit(config);
     console.log(this.config)
 
   }
 
-  unSelectConfig(config:any){
+  unSelectConfig(config: any) {
     this.unSelectConfigEvent.emit(config);
+  }
+
+  deleteItem(itemIdx:any) {
+    this.config?.divs.map((div: any, idx: any) => {
+      if (idx == itemIdx) {
+        console.log(div)
+        this.deletePropertiesExceptType(div);
+      }
+    });
+  }
+
+  deletePropertiesExceptType(obj:any) {
+    for (const [key, value] of Object.entries(obj))  {
+      if (key !== 'type') delete obj[key];
+      else obj.type = '';
+    }
   }
 
 }

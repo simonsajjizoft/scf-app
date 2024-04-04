@@ -25,6 +25,8 @@ export class HomeComponent {
   sections: any = []
   sidebarWidth: Number | any = 350;
   contentWidth: Number | any;
+  formTitle = '';
+  formDescription = '';
   @ViewChild('layoutModal') layoutModal: ElementRef | any;
   @HostListener('document:click', ['$event.target'])
   onClick(target: any) {
@@ -90,7 +92,7 @@ export class HomeComponent {
       height:'100vh',
       maxWidth: '100vw',
       maxHeight: '100vh',
-      data: { sections:this.sections} 
+      data: { sections:this.sections,formTitle : this.formTitle,formDescription:this.formDescription} 
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -98,6 +100,19 @@ export class HomeComponent {
     });
   }
 
+  addDivider(){
+    let obj = { cols: 1, divs: [{ type: 'divider' }] };
+    let tempArray = JSON.parse(JSON.stringify(obj));
+    tempArray.id = this.sections.length;
+    this.sections.push(tempArray);
+  }
+
+  addSpacer(){
+    let obj = { cols: 1, divs: [{ type: 'spacer' }] };
+    let tempArray = JSON.parse(JSON.stringify(obj));
+    tempArray.id = this.sections.length;
+    this.sections.push(tempArray);
+  }
 
 
 }

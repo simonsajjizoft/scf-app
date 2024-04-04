@@ -21,17 +21,18 @@ import { RadioComponent } from './components/radio/radio.component';
 import { DropdownComponent } from './components/dropdown/dropdown.component';
 import { CheckboxComponent } from './components/checkbox/checkbox.component';
 import { FormPreviewComponent } from './components/form-preview/form-preview.component';
-import { TextAreaComponent } from './components/text-area/text-area.component';
-import { DatePickerComponent } from './components/date-picker/date-picker.component';
+import { FormsModule } from '@angular/forms';
+import { LabelComponent } from './components/label/label.component';
+import { DividerComponent } from './components/divider/divider.component';
+import { SpacerComponent } from './components/spacer/spacer.component';
 @NgModule({
   declarations: [
     AppComponent,
-    TextAreaComponent,
-    DatePickerComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     BrowserAnimationsModule,
     SharedModule,
   ],

@@ -26,6 +26,10 @@ import { CheckboxComponent } from 'src/app/components/checkbox/checkbox.componen
 import {MatTooltipModule} from '@angular/material/tooltip';
 import { FormPreviewComponent } from 'src/app/components/form-preview/form-preview.component';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import { LabelComponent } from 'src/app/components/label/label.component';
+import { SpacerComponent } from 'src/app/components/spacer/spacer.component';
+import { DividerComponent } from 'src/app/components/divider/divider.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +48,9 @@ import {MatDialogModule} from '@angular/material/dialog';
     DropdownComponent,
     CheckboxComponent,
     FormPreviewComponent,
+    LabelComponent,
+    SpacerComponent,
+    DividerComponent
         
   ],
   imports: [
@@ -58,7 +65,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatButtonModule,
     MatProgressBarModule,
     MatTooltipModule,
-    MatDialogModule
+    MatDialogModule,
+    MatSlideToggleModule
     
     
 
@@ -89,7 +97,11 @@ import {MatDialogModule} from '@angular/material/dialog';
     CheckboxComponent,
     MatTooltipModule,
     FormPreviewComponent,
-    MatDialogModule
+    MatDialogModule,
+    MatSlideToggleModule,
+    LabelComponent,
+    SpacerComponent,
+    DividerComponent
   ]
 })
 export class SharedModule { }

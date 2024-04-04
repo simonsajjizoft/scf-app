@@ -17,6 +17,7 @@ export class CheckboxComponent {
   @Output() fieldValueChange = new EventEmitter();
   @Output() checkItemEvent = new EventEmitter();
   @Output() swapElement = new EventEmitter();
+  @Output() deleteItemEvent = new EventEmitter();
   showProperties:any;
   constructor(private changeDetectorRef: ChangeDetectorRef,
     private renderer: Renderer2) {
@@ -83,6 +84,10 @@ export class CheckboxComponent {
    changeLabelText(ev: any) {
     this.config.label = ev;
   }
+
+  deleteItem(){
+    this.deleteItemEvent.emit(this.idx);
+   }
 
 
 }

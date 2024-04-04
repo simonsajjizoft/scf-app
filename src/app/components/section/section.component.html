@@ -1,48 +1,52 @@
-<div class="grid px-6 py-6 border-b-2 border-gray-100 gap-4 mb-6 relative" [ngClass]="cols==1 ? 'grid-cols-1' : (cols==2 ? 'grid-cols-2' : (cols==3 ? 'grid-cols-3' : 'grid-cols-4'))">
-  <ng-container *ngFor="let item of config?.divs">
-    <div *ngIf="item?.type" class="cursor-pointer opacity-90 hover:opacity-100 min-h-32 flex flex-col items-center py-5 border-dashed border-2 border-gray-100">
-      <div class="w-full px-2" [ngSwitch]="item?.type">
-        <app-textbox  *ngSwitchCase="'textbox'" [editable]="true" [placeholder]="item?.placeholder"  [config]="item" (unselectFieldEvent)="unSelectConfig($event)" (selectFieldEvent)="selectConfig($event)"></app-textbox>
-        <app-radio *ngSwitchCase="'radio'" [editable]="true" [config]="item"></app-radio>
-        <app-dropdown *ngSwitchCase="'dropdown'" [editable]="true" [config]="item"></app-dropdown>
-        <app-checkbox *ngSwitchCase="'checkbox'" [editable]="true" [config]="item"></app-checkbox>
-        <app-text-area *ngSwitchCase="'textarea'" [editable]="true" [config]="item"></app-text-area>
-        <app-date-picker *ngSwitchCase="'datepicker'" [editable]="true" [config]="item"></app-date-picker>
+<div class="grid px-6 py-6 border-b-2 border-dashed border-gray-100 gap-4 mb-6 relative"
+  [ngClass]="cols==1 ? 'grid-cols-1' : (cols==2 ? 'grid-cols-2' : (cols==3 ? 'grid-cols-3' : 'grid-cols-4'))">
+  <ng-container *ngFor="let item of config?.divs;let idx=index">
+    <div *ngIf="item?.type"
+      class="cursor-pointer opacity-90 hover:opacity-100 h-max flex flex-col j py-3  border-dashed border-2 border-gray-100">
+      <div class="w-full px-2 py-2" [ngSwitch]="item?.type">
+        <app-textbox *ngSwitchCase="'textbox'" [editable]="true" [placeholder]="item?.placeholder" [config]="item"
+          (unselectFieldEvent)="unSelectConfig($event)" (selectFieldEvent)="selectConfig($event)"
+          (deleteItemEvent)="deleteItem($event)" [idx]="idx"></app-textbox>
+        <app-radio *ngSwitchCase="'radio'" [editable]="true" [config]="item" (deleteItemEvent)="deleteItem($event)"
+          [idx]="idx"></app-radio>
+        <app-dropdown *ngSwitchCase="'dropdown'" [editable]="true" [config]="item"
+          (deleteItemEvent)="deleteItem($event)" [idx]="idx"></app-dropdown>
+        <app-checkbox *ngSwitchCase="'checkbox'" [editable]="true" [config]="item"
+          (deleteItemEvent)="deleteItem($event)" [idx]="idx"></app-checkbox>
+        <app-label *ngSwitchCase="'label'" [editable]="true" [config]="item" [idx]="idx"  (deleteItemEvent)="deleteItem($event)"></app-label>
+        <app-divider *ngSwitchCase="'divider'" [editable]="true" [config]="item" [idx]="idx" ></app-divider>
+        <app-spacer *ngSwitchCase="'spacer'" [editable]="true" [config]="item" [idx]="idx" ></app-spacer>
       </div>
     </div>
-    <div *ngIf="!item?.type" class="cursor-pointer rounded-sm bg-slate-100 opacity-100 hover:opacity-100 h-32 flex flex-col items-center justify-center border-dashed border-2 border-gray-300">
-      <img [matMenuTriggerFor]="menu" src="assets/icons/add.png" class="opacity-65"  width="50px" height="50px" alt="" srcset="">
+    <div *ngIf="!item?.type"
+      class="cursor-pointer rounded-sm bg-slate-100 opacity-100 hover:opacity-100 min-h-28 flex flex-col items-center justify-center border-dashed border-2 border-gray-300">
+      <img [matMenuTriggerFor]="menu" src="assets/icons/add.png" class="opacity-65" width="50px" height="50px" alt=""
+        srcset="">
       <div class="text-xs font-semibold text-slate-300">Add a Field here</div>
       <mat-menu #menu="matMenu">
-          <button (click)="appendField('radio',item)" mat-menu-item class="flex items-center gap-1">
-            <div class="w-5 h-5"><img src="assets/icons/radio.png" class="w-full h-full"  alt="" srcset=""></div>
-            <span>Radio</span>
-          </button>
-          <button (click)="appendField('textbox',item)" mat-menu-item class="flex items-center gap-1">
-              <div class="w-5 h-5"><img src="assets/icons/text.png" class="w-full h-full"  alt="" srcset=""></div>
-            <span>Text Box</span>
-          </button>
-          <button (click)="appendField('dropdown',item)" mat-menu-item class="flex items-center gap-1">
-              <div class="w-5 h-5"><img src="assets/icons/drop.png" class="w-full h-full"  alt="" srcset=""></div>
-            <span>Dropdown</span>
-          </button>
-          <button (click)="appendField('checkbox',item)" mat-menu-item class="flex items-center gap-1">
-              <div class="w-5 h-5"><img src="assets/icons/check.png" class="w-full h-full"  alt="" srcset=""></div>
-            <span>Checkbox</span>
-          </button>
-          <button (click)="appendField('textarea',item)" mat-menu-item class="flex items-center gap-1">
-            <div class="w-5 h-5">
-              <img src="assets/icons/calendar.png" class="w-full h-full"  alt="" srcset="">
-              <!-- <mat-icon class="text-base leading-4">date_range</mat-icon> -->
-            </div>
-          <span>Textarea</span>
+        <button (click)="appendField('label',item)" mat-menu-item class="flex items-center gap-1">
+          <div class="w-5 h-5"><img src="assets/icons/label.png" class="w-full h-full" alt="" srcset=""></div>
+          <span>Label</span>
         </button>
-        <button (click)="appendField('datepicker',item)" mat-menu-item class="flex items-center gap-1">
-          <div class="w-5 h-5"><img src="assets/icons/textarea.png" class="w-full h-full"  alt="" srcset=""></div>
-        <span>datepicker</span>
-      </button>
-        </mat-menu>
-  </div>
-  </ng-container>  
+        <button (click)="appendField('radio',item)" mat-menu-item class="flex items-center gap-1">
+          <div class="w-5 h-5"><img src="assets/icons/radio.png" class="w-full h-full" alt="" srcset=""></div>
+          <span>Radio</span>
+        </button>
+        <button (click)="appendField('textbox',item)" mat-menu-item class="flex items-center gap-1">
+          <div class="w-5 h-5"><img src="assets/icons/text.png" class="w-full h-full" alt="" srcset=""></div>
+          <span>Text Box</span>
+        </button>
+        <button (click)="appendField('dropdown',item)" mat-menu-item class="flex items-center gap-1">
+          <div class="w-5 h-5"><img src="assets/icons/drop.png" class="w-full h-full" alt="" srcset=""></div>
+          <span>Dropdown</span>
+        </button>
+        <button (click)="appendField('checkbox',item)" mat-menu-item class="flex items-center gap-1">
+          <div class="w-5 h-5"><img src="assets/icons/check.png" class="w-full h-full" alt="" srcset=""></div>
+          <span>Checkbox</span>
+        </button>
+
+      </mat-menu>
+    </div>
+  </ng-container>
 
 </div>
