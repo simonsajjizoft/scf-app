@@ -3,6 +3,7 @@
 @tailwind components;
 @tailwind utilities;
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200..800;1,200..800&display=swap');
 
 .mat-tab-label:focus:not(.mat-tab-disabled){
   opacity: 1!important;
@@ -98,8 +99,8 @@ th, td, table{
 }
 
 .mat-tab-label-active{
-    color:black!important;
-    font-weight: 600!important;
+    color:rgb(3, 27, 124)!important;
+    font-weight: 700!important;
 }
 
 ::ng-deep mwlResizable {
