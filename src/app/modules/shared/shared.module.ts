@@ -32,7 +32,10 @@ import { SpacerComponent } from 'src/app/components/spacer/spacer.component';
 import { DividerComponent } from 'src/app/components/divider/divider.component';
 import { TextAreaComponent } from 'src/app/components/text-area/text-area.component';
 import { DatePickerComponent } from 'src/app/components/date-picker/date-picker.component';
-
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatNativeDateModule } from '@angular/material/core';
 @NgModule({
   declarations: [
     LoginComponent,
@@ -70,10 +73,11 @@ import { DatePickerComponent } from 'src/app/components/date-picker/date-picker.
     MatProgressBarModule,
     MatTooltipModule,
     MatDialogModule,
-    MatSlideToggleModule
-    
-    
-
+    MatSlideToggleModule,
+    MatDatepickerModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatNativeDateModule
   ],
   exports:[
     CommonModule,

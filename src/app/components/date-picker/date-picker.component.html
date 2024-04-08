@@ -1,1 +1,26 @@
-<p>date-picker works!</p>
+<div class="py-2 w-full flex flex-col gap-2 relative">
+    <div *ngIf="editable" class="absolute -top-4 -right-2 flex justify-end gap-2">
+      <mat-icon class="text-slate-500 text-sm" [matMenuTriggerFor]="configMenu">edit</mat-icon>
+      <mat-icon (click)="deleteItem()" class="text-slate-500 text-sm">delete</mat-icon>
+    </div>
+    <mat-menu #configMenu="matMenu" style="width: 640px!important;height: max-content!important;">
+      <div (click)="$event.stopPropagation();" class="min-h-14 max-h-24 w-scr overflow-y-auto flex items-center flex-wrap gap-3 bg-white z-10 rounded-md p-5 text-xs">
+        <div class="font-semibold">Placeholder</div>
+        <input type="text" (keydown)="changePlaceholderText($event)" class="border-2 outline-none rounded-md w-48 min-h-6 px-2 py-1" placeholder="Edit your placeholder here...">
+        <div class="font-semibold">Style</div>
+        <div class="inline-block relative w-32">
+          <select class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-3.5 py-1 pr-8 rounded leading-tight focus:outline-none focus:shadow-outline">
+            <option *ngFor="let value of [1]" class="px-3.5 py-3">Style 1</option>
+          </select>
+          <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3.5 text-gray-700">
+            <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+              <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </mat-menu>
+    <input type="date" [placeholder]="config?.placeholder"
+      [ngClass]="config?.selected ? 'border-blue-500': 'border-gray-300'"
+      class="border-2 outline-none rounded-sm text-sm w-full min-h-8 px-2 py-1">
+  </div>
