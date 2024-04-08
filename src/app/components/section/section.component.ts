@@ -44,18 +44,20 @@ export class SectionComponent {
       item.label = "";
       item.selected = false;
       item.checked = false;
-      item.values = ["Checkbox 1"];
+      item.values = ["Choice 1"];
       item.required = false;
       item.allowInput = true;
+      item.cols = '2';
     }
     else if (field == 'radio') {
       item.type = 'radio';
       item.label = "";
       item.selected = false;
       item.checked = false;
-      item.values = ['option A', 'option B'];
+      item.values = ['option A'];
       item.required = false;
       item.allowInput = true;
+      item.cols = '2';
     }
     else if (field == 'textbox') {
       item.type = field;

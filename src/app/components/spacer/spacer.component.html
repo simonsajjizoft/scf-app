@@ -1,5 +1,5 @@
 <div class="relative w-full h-full">
-    <div  class="w-full  " [style.height.px]="config?.height"  [ngClass]="editable ? 'border-dashed border-2 border-gray-400' : ''">
+    <div [matMenuTriggerFor]="configMenu"  class="w-full  " [style.height.px]="config?.height"  [ngClass]="editable ? 'border-dashed border-2 border-gray-400' : ''">
         <mat-menu #configMenu="matMenu" style="width: 640px!important;height: max-content!important;">
             <div (click)="$event.stopPropagation();"
               class=" min-h-14 max-h-24 w-scr overflow-y-auto flex items-center flex-wrap gap-3  bg-white z-10 rounded-md p-5 text-xs">

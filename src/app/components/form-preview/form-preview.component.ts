@@ -15,7 +15,8 @@ export class FormPreviewComponent {
     @Inject(MAT_DIALOG_DATA) public data: any) {
       this.sections = data?.sections;
       this.formTitle = data?.formTitle;
-      this.formDescription = data?.formDescription
+      this.formDescription = data?.formDescription;
+      console.log(data)
      } 
 
      onCancel(): void { 

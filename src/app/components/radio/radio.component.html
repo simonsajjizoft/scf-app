@@ -6,11 +6,11 @@
   </div>  <mat-menu #configMenu="matMenu" style="width: 640px!important;height: max-content!important;">
     <div (click)="$event.stopPropagation();"
       class=" min-h-14 max-h-24 w-scr overflow-y-auto flex items-center flex-wrap gap-3  bg-white z-10 rounded-md p-5 text-xs">
-      <div class="font-semibold">Style</div>
-      <div class="inline-block relative w-32 ">
-        <select
+      <div class="font-semibold">Cols</div>
+      <div class="inline-block relative w-24 ">
+        <select (change)="selectLayout($event?.target.value)" 
           class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-3.5 py-1 pr-8 rounded  leading-tight focus:outline-none focus:shadow-outline">
-          <option *ngFor="let value of [1]" class="px-3.5 py-3">Style 1</option>
+          <option *ngFor="let value of layouts" [selected]="value==config?.cols"  class="px-3.5 py-3">{{value}}</option>
         </select>
         <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3.5 text-gray-700">
           <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
@@ -31,7 +31,7 @@
   </mat-menu>
       <!-- <cite [contentEditable]="editable" (input)="editLabelText($event,label )" [innerText]="config?.label" (focusout)="changeLabelText(label?.innerText)" #label class="w-full  p-2 border-2 border-white focus:border-2 min-h-10 focus:border-blue-500   outline-none font-medium text-sm" placeholder="Click here to edit label"  [spellcheck]="false"></cite> -->
     <div>
-      <mat-radio-group  name="'name'" aria-label="Select an option" class="flex  items-center flex-wrap gap-2 text-sm font-medium">
+      <mat-radio-group  name="'name'" aria-label="Select an option" [ngClass]="{ 'grid-cols-1' : config?.cols==1, 'grid-cols-2':config?.cols==2,'grid-cols-3':config?.cols==3,'grid-cols-4':config?.cols==4}" class="grid   flex-wrap gap-3 text-sm font-medium">
         <div *ngFor="let option of config?.values;let idx=index" class="flex items-center gap-0.5">
           <input type="radio" name="0''"  [value]="option">
           <cite [contentEditable]="editable" [ngClass]="editable ? 'bg-slate-50' :''" [innerText]="option" #value (focusout)="OptionTextChange(option,idx,value?.innerText)"  [spellcheck]="false"

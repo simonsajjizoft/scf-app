@@ -19,6 +19,8 @@ export class RadioComponent {
   @Output() swapElement = new EventEmitter();
   @Output() deleteItemEvent = new EventEmitter();
   showProperties:any;
+  layouts = [1,2,3,4];
+  selectedLayout:any;
   constructor(private changeDetectorRef: ChangeDetectorRef,
     private renderer: Renderer2) {
 
@@ -87,6 +89,11 @@ export class RadioComponent {
 
    deleteItem(){
     this.deleteItemEvent.emit(this.idx);
+   }
+
+   selectLayout(layoutCols:any){
+    this.selectedLayout = layoutCols;
+    this.config.cols = layoutCols;
    }
    
 }
