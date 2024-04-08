@@ -207,7 +207,6 @@ export class ChecklistDatabase {
     if (!to.children) {
       to.children = [];
     }
-    console.log(to)
     const newItem = {...item} as TodoItemNode;
     to?.children.push(newItem);
     this.dataChange.next(this.data);
@@ -361,7 +360,6 @@ export class TreeDragDropComponent {
     handleDrop(event:any, node:any) {
       event.preventDefault();
       if (node !== this.dragNode) {
-        console.log(this.dragNode)
         let newItem: TodoItemNode;
         if (this.dragNodeExpandOverArea === 'above') {
           newItem = this.database.copyPasteItemAbove(this.flatNodeMap.get(this.dragNode), this.flatNodeMap.get(node));
@@ -385,7 +383,6 @@ export class TreeDragDropComponent {
     }
 
     appendNewChildren(from:TodoItemNode,to:TodoItemNode,isExpand:boolean){
-      console.log(isExpand)
       if(!isExpand){
         this.database.appendNewChildren(from, this.flatNodeMap.get(to));
         this.treeControl.expand(to);

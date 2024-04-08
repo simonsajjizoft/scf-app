@@ -104,8 +104,6 @@ export class SectionComponent {
 
   selectConfig(config: any) {
     this.selectConfigEvent.emit(config);
-    console.log(this.config)
-
   }
 
   unSelectConfig(config: any) {
@@ -115,7 +113,6 @@ export class SectionComponent {
   deleteItem(itemIdx:any) {
     this.config?.divs.map((div: any, idx: any) => {
       if (idx == itemIdx) {
-        console.log(div)
         this.deletePropertiesExceptType(div);
       }
     });

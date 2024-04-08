@@ -54,7 +54,6 @@ export class HomeComponent {
   }
 
   onResize(event: ResizeEvent): void {
-    console.log('Element was resized', event);
     if (event?.rectangle?.width && event?.rectangle?.width > 200) this.sidebarWidth = event.rectangle.width;
   }
 
@@ -65,7 +64,6 @@ export class HomeComponent {
   }
 
   submit() {
-    console.log(this.sections)
   }
 
   selectConfig(config: any) {
@@ -96,7 +94,6 @@ export class HomeComponent {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
     });
   }
 
@@ -108,11 +105,9 @@ export class HomeComponent {
   }
 
   deleteSection(idx:any){
-    console.log(idx)
     this.sections.map((section: any,i:any) => {
       if (i==idx) this.sections.splice(i,1)
     });
-  console.log(this.sections)
   }
 
   addSpacer(){

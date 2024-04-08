@@ -75,7 +75,6 @@ export class CheckboxComponent {
 
    
    OptionTextChange(opt:any,idx:any,change:any){
-    console.log(change);
     this.config.values[idx] = change;
    }
 

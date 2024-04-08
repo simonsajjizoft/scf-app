@@ -66,7 +66,6 @@ export class RadioComponent {
    }
 
    OptionTextChange(opt:any,idx:any,change:any){
-    console.log(change);
     this.config.values[idx] = change;
    }
 

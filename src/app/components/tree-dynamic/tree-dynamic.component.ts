@@ -86,8 +86,6 @@ export class TreeDynamicComponent {
       children: [] // If it's a leaf node, keep it empty, otherwise add children as needed
     };
     parentNode.children.push(newNode);
-    console.log(this.dataSource.data)
-
     // Update the data source
     this.dataSource.data = [...this.dataSource.data];
   }
