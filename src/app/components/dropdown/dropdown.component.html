@@ -3,7 +3,7 @@
     <mat-icon class="text-slate-500 text-sm" [matMenuTriggerFor]="configMenu">edit</mat-icon>
     <mat-icon (click)="deleteItem()" class="text-slate-500 text-sm" >delete</mat-icon>
   </div> -->
-  <div  *ngIf="editable && config?.selected" class="border rounded-3xl px-5 py-1 bg-white w-max shadow-md absolute -top-10 right-2 flex items-center gap-3"  >
+  <div  *ngIf="editable && config?.selected" class="z-10 border rounded-3xl px-5 py-1 bg-white w-max shadow-md absolute -top-10 right-2 flex items-center gap-3"  >
     <div (click)="deleteItem()"  class="font-semibold text-gray-500 text-xs flex items-center " matTooltip="Delete Section">
       <mat-icon class="leading-6 text-lg">delete_outline</mat-icon>
     </div>
