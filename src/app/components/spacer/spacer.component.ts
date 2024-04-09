@@ -12,7 +12,7 @@ export class SpacerComponent {
   @Input() editable:any;
   @Output() unselectFieldEvent = new EventEmitter();
   @Output() selectFieldEvent = new EventEmitter();
-  @Output() deleteItemEvent = new EventEmitter();
+  @Output() deleteSectionSpacer = new EventEmitter();
   showConfig:any;
   
   selectField(){
@@ -28,5 +28,9 @@ export class SpacerComponent {
 
   changeHtValue(ev:any){
     this.config.height = ev?.target?.value?.trim();
+  }
+
+  deleteItem(){
+    this.deleteSectionSpacer.emit()
   }
 }

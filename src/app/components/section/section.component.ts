@@ -34,7 +34,6 @@ export class SectionComponent implements AfterViewInit,OnChanges {
   }
 
   ngOnChanges(){
-    console.log(this.config);
   }
 
   ngAfterViewInit(){

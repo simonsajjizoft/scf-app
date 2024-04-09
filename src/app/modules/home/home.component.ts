@@ -17,10 +17,10 @@ export class HomeComponent {
   ];
   layoutView = this.layouts[1];
   designs = [
-    { cols: 1, divs: [{ type: '' }] ,selected:false},
-    { cols: 2, divs: [{ type: '' }, { type: '' }] ,selected:false},
-    { cols: 3, divs: [{ type: '' }, { type: '' }, { type: '' }],selected:false },
-    { cols: 4, divs: [{ type: '' }, { type: '' }, { type: '' }, { type: '' }],selected:false }
+    { cols: 1, divs: [{ type: '' }], selected: false },
+    { cols: 2, divs: [{ type: '' }, { type: '' }], selected: false },
+    { cols: 3, divs: [{ type: '' }, { type: '' }, { type: '' }], selected: false },
+    { cols: 4, divs: [{ type: '' }, { type: '' }, { type: '' }, { type: '' }], selected: false }
   ];
   sections: any = []
   sidebarWidth: Number | any = 350;
@@ -36,7 +36,7 @@ export class HomeComponent {
     }
   }
 
-  constructor(private dialog:MatDialog) { }
+  constructor(private dialog: MatDialog) { }
 
   selectLayout(layoutId: any) {
     // Unselect every item
@@ -58,25 +58,23 @@ export class HomeComponent {
   }
 
   addLayout(design: any) {
-    setTimeout(()=>{
+    setTimeout(() => {
       design.selected = true;
       this.unSelectAllConfigs()
-    console.log(design)
-    let tempArray = JSON.parse(JSON.stringify(design));
-    tempArray.id = this.sections.length;
-    this.sections.push(tempArray);
-    },10)
+      let tempArray = JSON.parse(JSON.stringify(design));
+      tempArray.id = this.sections.length;
+      this.sections.push(tempArray);
+    }, 10)
   }
 
-  submit() {
-  }
+  submit() {}
 
   selectConfig(config: any) {
     this.unSelectAllConfigs();
     config.selected = true;
   }
 
-  unSelectConfig(config:any){
+  unSelectConfig(config: any) {
     this.unSelectAllConfigs();
     config.selected = false;
   }
@@ -84,61 +82,61 @@ export class HomeComponent {
   unSelectAllConfigs() {
     this.sections.map((section: any) => {
       section?.divs?.map((item: any) => {
-       item.selected = false;
-     });
-   })
-   
+        item.selected = false;
+      });
+    })
+
   }
 
   openDialog() {
-    const dialogRef = this.dialog.open(FormPreviewComponent,{  
-      width:'100vw',
-      height:'100vh',
+    const dialogRef = this.dialog.open(FormPreviewComponent, {
+      width: '100vw',
+      height: '100vh',
       maxWidth: '100vw',
       maxHeight: '100vh',
-      data: { sections:this.sections,formTitle : this.formTitle,formDescription:this.formDescription} 
+      data: { sections: this.sections, formTitle: this.formTitle, formDescription: this.formDescription }
     });
 
     dialogRef.afterClosed().subscribe(result => {
     });
   }
 
-  addDivider(){
+  addDivider() {
     let obj = { cols: 1, divs: [{ type: 'divider' }] };
     let tempArray = JSON.parse(JSON.stringify(obj));
     tempArray.id = this.sections.length;
     this.sections.push(tempArray);
   }
 
-  deleteSection(idx:any){
-    this.sections.map((section: any,i:any) => {
-      if (i==idx) this.sections.splice(i,1)
+  deleteSection(idx: any) {
+    this.sections.map((section: any, i: any) => {
+      if (i == idx) this.sections.splice(i, 1)
     });
   }
 
-  addSpacer(){
-    let obj = { cols: 1, divs: [{ type: 'spacer',height:'32' }] };
+  addSpacer() {
+    let obj = { cols: 1, divs: [{ type: 'spacer', height: '32' }] };
     let tempArray = JSON.parse(JSON.stringify(obj));
     tempArray.id = this.sections.length;
     this.sections.push(tempArray);
   }
 
-  selectSection(section:any){
+  selectSection(section: any) {
     this.unSelectAllConfigs();
-    this.sections.map((section:any)=>{
+    this.sections.map((section: any) => {
       section.selected = false;
     })
     section.selected = true;
   }
 
-  unSelectSection(section:any){
-    this.sections.map((section:any)=>{
+  unSelectSection(section: any) {
+    this.sections.map((section: any) => {
       section.selected = false;
     })
     section.selected = false;
   }
 
-  reset(){
+  reset() {
     this.formTitle = '';
     this.formDescription = '';
     this.sections = [];
