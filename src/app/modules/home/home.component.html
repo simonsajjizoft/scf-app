@@ -47,8 +47,8 @@
         </div>
         <div class="flex-1 flex py-2.5 gap-0.5">
             <div class="  overflow-y-scroll  " [ngSwitch]="layoutView.view" style="flex:1">
-                <div class="bg-white h-max min-h-full" >
-                    <div class="bg-white px-3 pt-2 pb-8 mb-4 border-b-2 border-gray-200 ">
+                <div class="bg-white h-max min-h-full relative pb-2" >
+                    <div class="bg-white px-3 pt-2 pb-8 mb-4 border-b-2 border-gray-200 sticky top-0 z-20">
                         <div class="font-bold text-base px-3 py-3 flex justify-between items-center ">CREATE FORM 
                             <div class="flex justify-end gap-2">
                                 <div (click)="reset()" class="cursor-pointer px-3.5 py-1 font-semibold text-xs bg-white border-2 border-gray-300 text-orange-600 opacity-90 flex items-center justify-center">Reset</div>
