@@ -7,7 +7,7 @@
       <mat-icon class="leading-6 text-lg">edit</mat-icon>
     </div>
   </div>  
-    <div  class="w-full " [style.height.px]="config?.height"  [ngClass]="{ 'border-transparent':config?.selected ,'border-dashed border-2 border-gray-400 hover:border-transparent':!config?.selected || editable,'border-none':!editable}">
+    <div  class="w-full border-2 hover:border-blue-500" [style.height.px]="config?.height"  [ngClass]="{ 'border-blue-500':config?.selected ,'border-dashed border-2 border-gray-400 ':!config?.selected ,'border-none':!editable}">
         <mat-menu #configMenu="matMenu" style="width: 640px!important;height: max-content!important;">
             <div (click)="$event.stopPropagation();"
               class=" min-h-14 max-h-24 w-scr overflow-y-auto flex items-center flex-wrap gap-3  bg-white z-10 rounded-md p-5 text-xs">

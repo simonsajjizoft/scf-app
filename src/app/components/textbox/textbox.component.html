@@ -57,6 +57,6 @@
     class="w-full  p-2 border-2 border-white focus:border-2 min-h-10 focus:border-blue-500   outline-none font-medium text-sm"
     placeholder="Click here to edit label" [spellcheck]="false"></cite> -->
   <input  (click)="selectField()"  type="text" 
-    [placeholder]="placeholder" [ngClass]="{ 'border-transparent':config?.selected , 'border-2 border-gray-400':!config?.selected,'hover:border-transparent':editable}"
-    class="hover:border-transparent  outline-none rounded-sm w-full min-h-8 px-2 py-1 text-sm">
+    [placeholder]="placeholder" [ngClass]="{ 'border-blue-500 ':config?.selected , ' border-gray-400':!config?.selected}"
+    class="hover:border-blue-500 border-2  outline-none rounded-sm w-full min-h-8 px-2 py-1 text-sm cursor-pointer">
 </div>
