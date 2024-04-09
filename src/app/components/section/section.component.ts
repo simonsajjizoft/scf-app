@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, ElementRef, EventEmitter, OnChanges, Output, Renderer2, ViewChild } from '@angular/core';
 import { Input } from '@angular/core';
 import { MatMenuTrigger } from '@angular/material/menu';
+import { TextAreaComponent } from '../text-area/text-area.component';
 
 @Component({
   selector: 'app-section',
@@ -18,6 +19,7 @@ export class SectionComponent implements AfterViewInit,OnChanges {
   @Output() selectSectionEvent = new EventEmitter();
   @Output() unSelectSectionEvent = new EventEmitter();
   @ViewChild('section') section:ElementRef | any;
+  @ViewChild('elementitem') elementitem:ElementRef|any;
   showSectionOptions:boolean = false;
   designs = [
     { cols: 1, divs: [{ type: '' }] ,selected:false},
@@ -39,6 +41,11 @@ export class SectionComponent implements AfterViewInit,OnChanges {
     this.renderer.listen('window', 'click',(e:Event)=>{
       if(e.target !== this.section?.nativeElement){
           this.config.selected=false;
+      }
+      if(e.target!= this.elementitem?.nativeElement){
+        this.config.divs.map((div:any)=>{
+          div.selected = false;
+        })
       }
   });
   }
@@ -145,6 +152,9 @@ export class SectionComponent implements AfterViewInit,OnChanges {
 
   selectSection(){
     this.selectSectionEvent.emit(this.config);
+    this.config.divs.map((item:any)=>{
+      item.selected = false;
+    });
   }
 
   unSelectSection(){
@@ -155,6 +165,15 @@ export class SectionComponent implements AfterViewInit,OnChanges {
     let tempArray = JSON.parse(JSON.stringify(design));
     tempArray.id = this.config.id;
     if(design) this.config = tempArray;
+  }
+
+  selectElement(element:any){
+    this.unSelectSectionEvent.emit(this.config)
+    this.config.divs.map((item:any)=>{
+      item.selected = false;
+    });
+    this.unSelectConfig(this.config)
+    element.selected = true;
 
   }
 

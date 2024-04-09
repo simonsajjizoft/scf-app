@@ -60,6 +60,7 @@ export class HomeComponent {
   addLayout(design: any) {
     setTimeout(()=>{
       design.selected = true;
+      this.unSelectAllConfigs()
     console.log(design)
     let tempArray = JSON.parse(JSON.stringify(design));
     tempArray.id = this.sections.length;
@@ -82,10 +83,11 @@ export class HomeComponent {
 
   unSelectAllConfigs() {
     this.sections.map((section: any) => {
-      if (section?.divs) section.divs.map((item: any) => {
-        item.selected = false;
-      });
-    })
+      section?.divs?.map((item: any) => {
+       item.selected = false;
+     });
+   })
+   
   }
 
   openDialog() {
@@ -122,6 +124,7 @@ export class HomeComponent {
   }
 
   selectSection(section:any){
+    this.unSelectAllConfigs();
     this.sections.map((section:any)=>{
       section.selected = false;
     })

@@ -1,5 +1,5 @@
 <div class="px-2 py-2 text-sm flex flex-col gap-2 relative">
-  <div *ngIf="editable" class="absolute -top-4 -right-1 flex justify-end gap-2" >
+  <div *ngIf="editable" class="absolute -top-4 -right-1 flex justify-end gap-1" >
     <mat-icon class="text-slate-500 text-sm" [matMenuTriggerFor]="configMenu">edit</mat-icon>
     <mat-icon (click)="deleteItem()" class="text-slate-500 text-sm" >delete</mat-icon>
   </div>

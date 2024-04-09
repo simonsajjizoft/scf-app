@@ -1,8 +1,8 @@
-<div class="py-2 w-full flex flex-col gap-2 relative " >
-  <div *ngIf="editable" class="absolute -top-4 -right-2 flex justify-end gap-2" >
+<div [matMenuTriggerFor]="configMenu"  class=" w-full flex flex-col gap-2 relative " >
+  <!-- <div *ngIf="editable" class="absolute -top-4 -right-2 flex justify-end gap-1" >
     <mat-icon class="text-slate-500 text-sm" [matMenuTriggerFor]="configMenu">edit</mat-icon>
     <mat-icon (click)="deleteItem()" class="text-slate-500 text-sm" >delete</mat-icon>
-  </div> 
+  </div>  -->
     <mat-menu #configMenu="matMenu" style="width: 640px!important;height: max-content!important;">
         <div (click)="$event.stopPropagation();"  class=" min-h-14 max-h-24 w-scr overflow-y-auto flex items-center flex-wrap gap-3  bg-white z-10 rounded-md p-5 text-xs">
             <div class="font-semibold">Placeholder</div>
@@ -19,7 +19,7 @@
     
         </div>
       </mat-menu>
-      <textarea  (click)="selectField()" (focusout)="unselectField()" type="text"
-      [placeholder]="config?.placeholder" [ngClass]="config?.selected ? 'border-blue-500': 'border-gray-300'"
+      <textarea  type="text"
+      [placeholder]="config?.placeholder" 
       class="border-2  outline-none rounded-sm text-sm w-full min-h-8 px-2 py-1"></textarea>
     </div>
