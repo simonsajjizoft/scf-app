@@ -12,16 +12,15 @@
                     <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
                   </svg>
             </div>
-            <div class=" px-3 py-1.5 font-medium text-xs bg-orange-600 text-white flex items-center justify-center">myGS1</div>
         </div>
     </div>
     <div class="header sticky top-12 flex justify-between text-sm z-20 bg-white ">
         <div class="font-semibold w-80 border add-attr  bg-primary-color px-6 py-1 text-white flex justify-end items-center text-sm gap-2">
             <mat-icon>add_circle_outline</mat-icon>Add Attribute </div>
-        <div class="font-semibold relative flex flex-1 justify-end items-center px-4 border-t-2 border-b-2 border-gray-200" #layoutModal>
-            <div class="flex justify-end items-center gap-8 px-3">
-                <div (click)="openDialog()" matTooltip="Preview" class="cursor-pointer flex items-center  text-blue-900 opacity-85 gap-1 font-semibold"><svg width="24" fill="currentColor" stroke="1" height="24" viewBox="0 0 24 24" focusable="false" class=" NMm5M"><path d="M5 6h16V4H5c-1.1 0-2 .9-2 2v11H1v3h11v-3H5V6zm16 2h-6c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h6c.55 0 1-.45 1-1V9c0-.55-.45-1-1-1zm-1 9h-4v-7h4v7z"></path></svg></div>
-                <button mat-icon-button class="flex items-center"><mat-icon>more_vert</mat-icon></button>
+        <div class="font-semibold relative flex flex-1 justify-end items-center px-1 border-t-2 border-b-2 border-gray-200" #layoutModal>
+            <div class="flex justify-end items-center gap-3 px-3">
+                <!-- <div (click)="openDialog()" matTooltip="Preview" class="cursor-pointer flex items-center  text-blue-900 opacity-85 gap-1 font-semibold"><svg width="24" fill="currentColor" stroke="1" height="24" viewBox="0 0 24 24" focusable="false" class=" NMm5M"><path d="M5 6h16V4H5c-1.1 0-2 .9-2 2v11H1v3h11v-3H5V6zm16 2h-6c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h6c.55 0 1-.45 1-1V9c0-.55-.45-1-1-1zm-1 9h-4v-7h4v7z"></path></svg></div> -->
+                <!-- <button mat-icon-button class="flex items-center"><mat-icon>more_vert</mat-icon></button> -->
             </div>
         </div>
     </div>
@@ -49,15 +48,30 @@
         <div class="flex-1 flex py-2.5 gap-0.5">
             <div class="  overflow-y-scroll  " [ngSwitch]="layoutView.view" style="flex:1">
                 <div class="bg-white h-max min-h-full" >
-                    <div class="bg-white px-3 pt-4 pb-8 mb-4 border-b-2 border-gray-200 ">
-                        <div class="font-bold text-base px-3 py-3 flex justify-between">CREATE FORM 
-                            
+                    <div class="bg-white px-3 pt-2 pb-8 mb-4 border-b-2 border-gray-200 ">
+                        <div class="font-bold text-base px-3 py-3 flex justify-between items-center ">CREATE FORM 
+                            <div class="flex justify-end gap-2">
+                                
+                                <div (click)="reset()" class="cursor-pointer px-3.5 py-1 font-semibold text-xs bg-white border-2 border-gray-300 text-orange-600 opacity-90 flex items-center justify-center">Reset</div>
+                                <div class=" px-3.5 py-0.5 font-semibold text-xs bg-orange-600 text-white flex items-center justify-center opacity-90">Save</div>
+                                <div  class="font-medium text-sm bg-white  text-orange-700 opacity-90 flex items-center justify-center">
+                                    <mat-icon [matMenuTriggerFor]="menu" class="text-xl leading-6 cursor-pointer -mr-3">more_vert</mat-icon>
+                                    <mat-menu #menu="matMenu">
+                                        <button (click)="openDialog()" mat-menu-item class=" font-semibold">
+                                         <mat-icon class="text-lg leading-5">devices</mat-icon>
+                                          <span>Preview</span>
+                                        </button>                                
+                                      </mat-menu>
+                                    
+                                </div>
+                            </div>
+
                         </div>
                         <div class="px-2"><input type="text" [(ngModel)]="formTitle"
-                                class="border-2 rounded-sm bg-transparent font-semibold placeholder:text-gray-400 placeholder:font-semibold border-zinc-300 w-full px-3 py-1 mt-2 opacity-90 focus:opacity-100 outline-none focus:border-blue-500"
+                                class="border-2 text-sm rounded-sm py-0.5 bg-transparent font-semibold placeholder:text-gray-400 placeholder:font-semibold border-zinc-300 w-full px-3  mt-2 opacity-90 focus:opacity-100 outline-none focus:border-blue-500"
                                 name="" placeholder="Form Title" id=""></div>
                         <div class="px-2"><textarea type="text" [(ngModel)]="formDescription"
-                                class="border-2 rounded-sm bg-transparent font-semibold placeholder:text-gray-400 placeholder:font-semibold border-zinc-300 w-full px-3 py-1 mt-2 opacity-90 focus:opacity-100 outline-none focus:border-blue-500"
+                                class="border-2 rounded-sm  text-sm py-0.5 bg-transparent font-semibold placeholder:text-gray-400 placeholder:font-semibold border-zinc-300 w-full px-3  mt-2 opacity-90 focus:opacity-100 outline-none focus:border-blue-500"
                                 name="" placeholder="Description" id=""></textarea></div>
                     </div>
         
@@ -69,15 +83,15 @@
             </div>
             <div class=" w-1/5 mr-3 min-w-80 relative h-full">
                 <div class="overflow-y-auto bg-white  min-h-full">
-                    <div class=" text-sm font-medium pb-4  w-full  -z-10">
+                    <div class=" text-sm font-medium pb-4 pt-2  w-full  -z-10">
                         <div >
                             <mat-tab-group animationDuration="0ms" >
                                 <mat-tab label="Insert">
-                                    <div  style="height: calc(100vh - 185px);" class="overflow-y-auto  py-2">
-                                        <div class="px-5 pt-3">Content Blocks</div>
-                                        <div class="grid grid-cols-2 gap-3 py-3   mb-4 px-5">
+                                    <div  style="height: calc(100vh - 185px);" class="overflow-y-scroll  py-2">
+                                          <div class=" text-gray-500 font-bold text-xs px-3 py-2">CONTENT BLOCKS</div>
+                                          <div class="grid grid-cols-2 gap-3 py-3 px-3   mb-2 ">
                                             <div (click)="addLayout(design)" *ngFor="let design of designs"
-                                                class="h-16 rounded-sm  ring-2 ring-gray-200  shadow-sm border-gray-100 flex items-center gap-1 px-2 py-2 bg-zinc-50 hover:bg-zinc-100 cursor-pointer">
+                                                class="h-16   ring-2 ring-gray-200  border-gray-100 flex items-center gap-1 px-3 py-3 bg-zinc-50 hover:bg-zinc-100 cursor-pointer">
                                                 <div *ngFor="let item of design?.divs" class=" bg-slate-300 h-3" [ngClass]="{
                                                 'w-full':design?.divs?.length==1,
                                                 'w-1/2':design?.divs?.length==2,
@@ -86,7 +100,6 @@
                                             }"></div>
                                             </div>
                                         </div>
-        
                                         <div class="text-xs mt-2 font-semibold text-gray-900 px-2 border-t-2 py-2 border-gray-100">
                                             <div (click)="addDivider()"
                                                 class="px-2 py-2.5 hover:bg-neutral-100 cursor-pointer rounded-sm flex items-center gap-2">

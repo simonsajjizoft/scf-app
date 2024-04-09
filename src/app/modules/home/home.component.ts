@@ -58,9 +58,13 @@ export class HomeComponent {
   }
 
   addLayout(design: any) {
+    setTimeout(()=>{
+      design.selected = true;
+    console.log(design)
     let tempArray = JSON.parse(JSON.stringify(design));
     tempArray.id = this.sections.length;
     this.sections.push(tempArray);
+    },10)
   }
 
   submit() {
@@ -129,6 +133,12 @@ export class HomeComponent {
       section.selected = false;
     })
     section.selected = false;
+  }
+
+  reset(){
+    this.formTitle = '';
+    this.formDescription = '';
+    this.sections = [];
   }
 
 

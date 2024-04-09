@@ -23,8 +23,8 @@
   
 
 .h-screen-custom {
-  height: calc(100vh - 88px);
-  max-height: calc(100vh - 88px);
+  height: calc(100vh - 82px);
+  max-height: calc(100vh - 82px);
 }
 
 
@@ -65,3 +65,24 @@
 .add-attr{
   border-color:var(--primary-color)!important;
 }
+
+.mat-expansion-panel:not([class*='mat-elevation-z']) {
+  box-shadow: none;
+}
+
+::ng-deep.mat-expansion-indicator::after{
+  border-color: rgb(68, 68, 68)!important;
+ }
+
+
+ .disable_ripple:hover{
+  background: none !important;
+  }
+
+  ::ng-deep.mat-expansion-panel-body{
+    padding: 0px 12px 8px!important;
+  }
+
+  ::ng-deep.mat-expansion-panel-header{
+    padding: 0px 12px 2px!important;
+  }

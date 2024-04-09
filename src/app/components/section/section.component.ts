@@ -1,4 +1,4 @@
-import { Component, ElementRef, EventEmitter, Output, Renderer2, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, EventEmitter, OnChanges, Output, Renderer2, ViewChild } from '@angular/core';
 import { Input } from '@angular/core';
 import { MatMenuTrigger } from '@angular/material/menu';
 
@@ -7,7 +7,7 @@ import { MatMenuTrigger } from '@angular/material/menu';
   templateUrl: './section.component.html',
   styleUrls: ['./section.component.scss']
 })
-export class SectionComponent {
+export class SectionComponent implements AfterViewInit,OnChanges {
   @Input() cols: any;
   @Input() divs: any;
   @Input() config: any;
@@ -19,14 +19,28 @@ export class SectionComponent {
   @Output() unSelectSectionEvent = new EventEmitter();
   @ViewChild('section') section:ElementRef | any;
   showSectionOptions:boolean = false;
+  designs = [
+    { cols: 1, divs: [{ type: '' }] ,selected:false},
+    { cols: 2, divs: [{ type: '' }, { type: '' }] ,selected:false},
+    { cols: 3, divs: [{ type: '' }, { type: '' }, { type: '' }],selected:false },
+    { cols: 4, divs: [{ type: '' }, { type: '' }, { type: '' }, { type: '' }],selected:false }
+  ];
 
   constructor(private renderer: Renderer2){
-    this.renderer.listen('window', 'click',(e:Event)=>{
-     if(e.target !== this.section?.nativeElement){
-         this.config.selected=false;
-     }
- });
 
+
+  }
+
+  ngOnChanges(){
+    console.log(this.config);
+  }
+
+  ngAfterViewInit(){
+    this.renderer.listen('window', 'click',(e:Event)=>{
+      if(e.target !== this.section?.nativeElement){
+          this.config.selected=false;
+      }
+  });
   }
 
   appendField(field: any, item: any) {
@@ -130,16 +144,18 @@ export class SectionComponent {
   }
 
   selectSection(){
-   if(!this.config.selected){
     this.selectSectionEvent.emit(this.config);
-   } 
-   else{
-    this.unSelectSectionEvent.emit(this.config)
-   } 
   }
 
   unSelectSection(){
     this.unSelectSectionEvent.emit(this.config)
+  }
+
+  assignLayout(design:any){
+    let tempArray = JSON.parse(JSON.stringify(design));
+    tempArray.id = this.config.id;
+    if(design) this.config = tempArray;
+
   }
 
 }

@@ -36,6 +36,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatNativeDateModule } from '@angular/material/core';
+import {MatExpansionModule} from '@angular/material/expansion';
+
 @NgModule({
   declarations: [
     LoginComponent,
@@ -77,7 +79,8 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatDatepickerModule,
     MatInputModule,
     MatFormFieldModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatExpansionModule
   ],
   exports:[
     CommonModule,
@@ -111,7 +114,8 @@ import { MatNativeDateModule } from '@angular/material/core';
     SpacerComponent,
     DividerComponent,
     TextAreaComponent,
-    DatePickerComponent
+    DatePickerComponent,
+    MatExpansionModule
   ]
 })
 export class SharedModule { }
