@@ -43,7 +43,7 @@
     (focusout)="changeLabelText(label?.innerText)" #label
     class="w-full  p-2 border-2 border-white focus:border-2 min-h-10 focus:border-blue-500   outline-none font-medium text-sm"
     placeholder="Click here to edit label" [spellcheck]="false"></cite> -->
-  <input  (click)="selectField()" (focusout)="unselectField()" type="text" 
+  <input  (click)="selectField()"  type="text" 
     [placeholder]="placeholder" [ngClass]="config?.selected ? 'border-none': 'border-2 border-gray-400'"
     class="hover:border-none  outline-none rounded-sm w-full min-h-8 px-2 py-1 text-sm">
 </div>

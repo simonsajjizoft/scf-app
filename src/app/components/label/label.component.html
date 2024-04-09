@@ -1,7 +1,7 @@
 <div [matMenuTriggerFor]="editable ? configMenu : ''" class="w-full flex flex-col relative flex-1">
       <mat-menu #configMenu="matMenu"  >
-        <button mat-menu-item class="flex items-center gap-1">
-          <mat-icon  (click)="deleteItem()" class="text-slate-500 text-base mr-0" >delete</mat-icon>
+        <button (click)="deleteItem()" mat-menu-item class="flex items-center gap-1">
+          <mat-icon   class="text-slate-500 text-base mr-0" >delete</mat-icon>
         Delete
         </button>
       </mat-menu>
