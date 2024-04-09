@@ -1,12 +1,24 @@
-<div [matMenuTriggerFor]="configMenu" class=" w-full flex flex-col gap-2 relative  ">
+<div  class=" w-full flex flex-col gap-2 relative  ">
   <!-- <div class="flex justify-end e"><mat-icon class="text-gray-400 text-base leading-4">edit</mat-icon></div> -->
   <!-- <div *ngIf="editable" class="absolute -top-4 -right-2 flex justify-end gap-1" >
     <mat-icon class="text-slate-500 text-sm" [matMenuTriggerFor]="configMenu">edit</mat-icon>
     <mat-icon (click)="deleteItem()" class="text-slate-500 text-sm" >delete</mat-icon>
   </div>   -->
-  <mat-menu #configMenu="matMenu" style="width: 640px!important;height: max-content!important;">
+  <div  *ngIf="editable && config?.selected" class="border rounded-3xl px-5 py-1 bg-white w-max shadow-md absolute -top-10 right-2 flex items-center gap-3"  >
+    <div (click)="deleteItem()"  class="font-semibold text-gray-500 text-xs flex items-center " matTooltip="Delete Section">
+      <mat-icon class="leading-6 text-lg">delete_outline</mat-icon>
+    </div>
+    <div [matMenuTriggerFor]="configMenu" class="font-semibold text-gray-500 text-xs flex items-center " matTooltip="Delete Section">
+      <mat-icon class="leading-6 text-lg">edit</mat-icon>
+    </div>
+  </div>
+  <mat-menu #configMenu="matMenu" yPosition="above" style="width: 640px!important;height: max-content!important;">
     <div (click)="$event.stopPropagation();"
       class=" min-h-14 max-h-24 w-scr overflow-y-auto flex items-center flex-wrap gap-3  bg-white z-10 rounded-md p-5 text-xs">
+      <div (click)="deleteItem()" class="flex  font-semibold items-center px-3 py-1.5 rounded-sm cursor-pointer hover:bg-gray-50">
+        <mat-icon  class="text-slate-500 text-base"  >delete</mat-icon>
+        Delete
+      </div>
       <div class="font-semibold">Placeholder</div>
       <input type="text" (keydown)="changePlaceholderText($event)"
         class="border-2  outline-none rounded-md w-48 min-h-6 px-2 py-1" placeholder="Edit your placeholder here...">
@@ -22,6 +34,7 @@
           </svg>
         </div>
       </div>
+
       <div class="font-semibold">Required</div>
       <mat-slide-toggle class="example-margin" [color]="'primary'" (change)="config.required = $event?.checked"
         [checked]="config?.required">
@@ -44,6 +57,6 @@
     class="w-full  p-2 border-2 border-white focus:border-2 min-h-10 focus:border-blue-500   outline-none font-medium text-sm"
     placeholder="Click here to edit label" [spellcheck]="false"></cite> -->
   <input  (click)="selectField()"  type="text" 
-    [placeholder]="placeholder" [ngClass]="config?.selected ? 'border-none': 'border-2 border-gray-400'"
-    class="hover:border-none  outline-none rounded-sm w-full min-h-8 px-2 py-1 text-sm">
+    [placeholder]="placeholder" [ngClass]="{ 'border-transparent':config?.selected , 'border-2 border-gray-400':!config?.selected,'hover:border-transparent':editable}"
+    class="hover:border-transparent  outline-none rounded-sm w-full min-h-8 px-2 py-1 text-sm">
 </div>

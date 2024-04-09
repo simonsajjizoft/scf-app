@@ -1,10 +1,9 @@
-<div [matMenuTriggerFor]="editable ? configMenu : ''" class="w-full flex flex-col relative flex-1">
-      <mat-menu #configMenu="matMenu"  >
-        <button (click)="deleteItem()" mat-menu-item class="flex items-center gap-1">
-          <mat-icon   class="text-slate-500 text-base mr-0" >delete</mat-icon>
-        Delete
-        </button>
-      </mat-menu>
+<div  class="w-full flex flex-col relative flex-1">
+  <div  *ngIf="editable && config?.selected" class="border rounded-3xl px-2 py-1 bg-white w-max shadow-md absolute -top-10 right-2 flex items-center gap-3"  >
+    <div (click)="deleteItem()"  class="font-semibold text-gray-500 text-xs flex items-center " matTooltip="Delete Section">
+      <mat-icon class="leading-6 text-lg -mr-1">delete_outline</mat-icon>
+    </div>
+  </div>
     <cite [contentEditable]="editable" (input)="editLabelText($event,label )" [innerText]="config?.label"
     (focusout)="changeLabelText(label?.innerText)" #label
     class="w-full flex-1 p-2 border-2 border-white focus:border-2 min-h-10 h-max    outline-none font-semibold text-sm"

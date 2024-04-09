@@ -1,11 +1,23 @@
-<div [matMenuTriggerFor]="configMenu"  class=" w-full flex flex-col gap-2 relative " >
+<div  class=" w-full flex flex-col gap-2 relative " >
   <!-- <div *ngIf="editable" class="absolute -top-4 -right-2 flex justify-end gap-1" >
     <mat-icon class="text-slate-500 text-sm" [matMenuTriggerFor]="configMenu">edit</mat-icon>
     <mat-icon (click)="deleteItem()" class="text-slate-500 text-sm" >delete</mat-icon>
   </div>  -->
-    <mat-menu #configMenu="matMenu" style="width: 640px!important;height: max-content!important;">
+  <div  *ngIf="editable && config?.selected" class="border rounded-3xl px-5 py-1 bg-white w-max shadow-md absolute -top-10 right-2 flex items-center gap-3"  >
+    <div (click)="deleteItem()"  class="font-semibold text-gray-500 text-xs flex items-center " matTooltip="Delete Section">
+      <mat-icon class="leading-6 text-lg">delete_outline</mat-icon>
+    </div>
+    <div [matMenuTriggerFor]="configMenu" class="font-semibold text-gray-500 text-xs flex items-center " matTooltip="Delete Section">
+      <mat-icon class="leading-6 text-lg">edit</mat-icon>
+    </div>
+  </div>
+    <mat-menu #configMenu="matMenu" yPosition="above" style="width: 640px!important;height: max-content!important;">
         <div (click)="$event.stopPropagation();"  class=" min-h-14 max-h-24 w-scr overflow-y-auto flex items-center flex-wrap gap-3  bg-white z-10 rounded-md p-5 text-xs">
-            <div class="font-semibold">Placeholder</div>
+          <div (click)="deleteItem()" class="flex gap-0.5 font-semibold items-center px-3 py-1.5 rounded-sm cursor-pointer hover:bg-gray-50">
+            <mat-icon  class="text-slate-500 text-base" >delete</mat-icon>
+            Delete
+          </div>  
+          <div class="font-semibold">Placeholder</div>
             <input type="text" (keydown)="changePlaceholderText($event)" class="border-2  outline-none rounded-md w-48 min-h-6 px-2 py-1" placeholder="Edit your placeholder here...">
             <div class="font-semibold">Style</div>
             <div class="inline-block relative w-32 " >
@@ -16,10 +28,11 @@
                   <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
                 </div>
               </div>
+           
     
         </div>
       </mat-menu>
       <textarea  type="text"
-      [placeholder]="config?.placeholder" 
-      class="border-2  outline-none rounded-sm text-sm w-full min-h-8 px-2 py-1"></textarea>
+      [placeholder]="config?.placeholder"  [ngClass]="{ 'border-transparent':config?.selected , 'border-2 border-gray-400':!config?.selected,'hover:border-transparent':editable}"
+      class="hover:border-transparent  outline-none rounded-sm text-sm w-full min-h-8 px-2 py-1"></textarea>
     </div>
