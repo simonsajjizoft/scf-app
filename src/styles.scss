@@ -126,8 +126,8 @@ th, td, table{
 }
 
 .mat-tab-label-active{
-    color:rgb(3, 27, 124)!important;
-    font-weight: 700!important;
+    color:rgb(5, 64, 167)!important;
+    font-weight: 500!important;
 }
 
 ::ng-deep mwlResizable {
@@ -154,3 +154,9 @@ th, td, table{
   color:rgb(174, 174, 174)!important;
   font-weight: normal!important;
   }
+
+
+  .mat-tab-group.mat-primary .mat-ink-bar, .mat-tab-nav-bar.mat-primary .mat-ink-bar{
+    background: rgba(15, 76, 181, 0.9);
+    height: 0.12rem;
+  } 

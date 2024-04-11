@@ -1,4 +1,4 @@
-<div  class="py-0.5 px-2 text-sm flex flex-col gap-2 relative border-2 hover:border-blue-500" [ngClass]="{ ' border-blue-500':config?.selected , ' border-transparent':!config?.selected}">
+<div  class="py-0.5 px-2 text-sm flex flex-col gap-2 relative border-2 " [ngClass]="{ ' border-blue-500':config?.selected , ' border-transparent':!config?.selected,'hover:border-blue-500':editable}">
   <!-- <div *ngIf="editable" class="absolute -top-4 -right-1 flex justify-end gap-1" >
     <mat-icon class="text-slate-500 text-sm" [matMenuTriggerFor]="configMenu">edit</mat-icon>
     <mat-icon (click)="deleteItem()" class="text-slate-500 text-sm" >delete</mat-icon>

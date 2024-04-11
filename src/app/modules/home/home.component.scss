@@ -23,8 +23,13 @@
   
 
 .h-screen-custom {
-  height: calc(100vh - 90px);
-  max-height: calc(100vh - 90px);
+  height: calc(100vh - 58px);
+  max-height: calc(100vh - 58px);
+}
+
+.h-form-custom{
+  height: calc(100vh - 270px);
+  max-height: calc(100vh - 270px);
 }
 
 
@@ -52,6 +57,7 @@
 
 ::ng-deep.mat-tab-label {
   min-width: 50px!important;
+  max-height: 44px!important;
 }
 
 .sidebar{
@@ -85,4 +91,8 @@
 
   ::ng-deep.mat-expansion-panel-header{
     padding: 0px 12px 2px!important;
+  }
+
+  .f-s-11{
+    font-size: 11px!important;
   }

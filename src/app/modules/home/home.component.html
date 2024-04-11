@@ -1,10 +1,10 @@
-<div class=" h-screen w-full bg-zinc-100 relative">
-    <div class="hdr sticky top-0 c-primary z-20  w-full px-3 py-1 flex items-center justify-between  bg-zinc-100">
+<div class=" h-screen w-full bg-gray-100 relative">
+    <div class="hdr sticky top-0 c-primary z-20  w-full px-3 py-1.5 flex items-center justify-between  bg-white border-b-2 border-gray-200">
         <div class="font-semibold text-lg pt-1 flex items-end gap-1">
             <img src="assets/icons/Group 2699.png"
-                class="w-14 h-8 border-r-2 border-gray-300 px-3" alt="" srcset="">
+                class="w-12 h-10  border-gray-300 px-1" alt="" srcset="">
 
-                <span class="pl-2 font-bold c-primary opacity-90 pb-0.5">SCF</span> </div>
+                <span class=" font-semibold c-primary opacity-90 pb-0.5">Supplemental Contents Form</span> </div>
         <div class="flex justify-end items-center gap-4">
             <div class="flex  gap-1">
                 <img src="assets/icons/user.png" class="w-5 h-5" alt="" srcset="">
@@ -14,17 +14,13 @@
             </div>
         </div>
     </div>
-    <div class="header sticky top-10 flex justify-between text-sm z-20 bg-white ">
+    <!-- <div class="header sticky top-10 flex justify-between text-sm z-20 bg-white ">
         <div class="font-semibold w-80 border add-attr  bg-primary-color px-6 py-1.5 text-white flex justify-end items-center text-sm gap-2">
-            <img src="assets/icons/add-attribute.png" class="w-8 h-8" alt="" srcset=""> Add Attribute </div>
-        <div class="font-semibold relative flex flex-1 justify-end items-center px-1.5 border-t-2 border-b-2 border-gray-200" #layoutModal>
-            <div class="flex justify-end items-center gap-3 px-3">
-                <!-- <div (click)="openDialog()" matTooltip="Preview" class="cursor-pointer flex items-center  text-blue-900 opacity-85 gap-1 font-semibold"><svg width="24" fill="currentColor" stroke="1" height="24" viewBox="0 0 24 24" focusable="false" class=" NMm5M"><path d="M5 6h16V4H5c-1.1 0-2 .9-2 2v11H1v3h11v-3H5V6zm16 2h-6c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h6c.55 0 1-.45 1-1V9c0-.55-.45-1-1-1zm-1 9h-4v-7h4v7z"></path></svg></div> -->
-                <!-- <button mat-icon-button class="flex items-center"><mat-icon>more_vert</mat-icon></button> -->
-            </div>
+            <img src="assets/icons/add-attribute.png" class="w-7 h-7" alt="" srcset=""> Add Attribute </div>
+        <div class="font-semibold relative flex flex-1 justify-end items-center py-1 px-1 border-b-2 border-t-2 border-gray-200" #layoutModal>
         </div>
-    </div>
-    <div class="w-full flex gap-4 h-screen-custom overflow-hidden relative">
+    </div> -->
+    <div class="w-full flex  h-screen-custom overflow-hidden relative">
         <div class="bg-primary-color w-20 pt-5 font-light">
             <div class="py-4">
                 <div class="text-gray-50 flex flex-col items-center justify-center text-center gap-1 text-xs px-1 py-3">
@@ -45,49 +41,53 @@
                 </div>
             </div>
         </div>
-        <div class="flex-1 flex py-2.5 gap-0.5">
-            <div class="  overflow-y-scroll  " [ngSwitch]="layoutView.view" style="flex:1">
-                <div class="bg-white h-max min-h-full relative pb-2" >
-                    <div class="bg-white px-3 pt-2 pb-8 mb-10 border-b-2 border-gray-200 sticky top-0 z-20">
-                        <div class="font-bold text-base px-3 py-3 flex justify-between items-center ">CREATE FORM 
-                            <div class="flex justify-end gap-2">
-                                <div (click)="reset()" class="cursor-pointer px-3.5 py-1 font-semibold text-xs bg-white border-2 border-gray-300 text-orange-600 opacity-90 flex items-center justify-center">Reset</div>
-                                <div class=" px-3.5 py-0.5 font-semibold text-xs bg-orange-600 text-white flex items-center justify-center opacity-90">Save</div>
-                                <div  class="font-medium text-sm bg-white  text-orange-700 opacity-90 flex items-center justify-center">
-                                    <mat-icon [matMenuTriggerFor]="menu" class="text-2xl leading-6 cursor-pointer -mr-3">more_vert</mat-icon>
-                                    <mat-menu #menu="matMenu" xPosition="before">
-                                        <button (click)="openDialog()" mat-menu-item class=" font-semibold">
-                                         <mat-icon class="text-lg leading-5">devices</mat-icon>
-                                          <span>Preview</span>
-                                        </button>                                
-                                      </mat-menu>
-                                    
+        <div class="flex-1 flex  gap-0.5 ">
+            <div class="   px-3.5 py-1.5" [ngSwitch]="layoutView.view" style="flex:1">
+                    <div class="bg-white h-full relative mt-2" >
+                        <div class="bg-white px-6 pt-2  mb-2   z-20">
+                            <div class="font-bold text-base px-4 py-3  flex justify-between items-center ">CREATE FORM 
+                                <div class="flex justify-end gap-2">
+                                    <div (click)="reset()" class="rounded-sm cursor-pointer px-3.5 py-1 font-semibold text-xs bg-white border-2 border-gray-300 text-orange-600 opacity-90 flex items-center justify-center">Reset</div>
+                                    <div class=" px-4 py-0.5 rounded-sm font-semibold text-xs bg-orange-600 text-white flex items-center justify-center opacity-90">Save</div>
+                                    <div  class="font-medium text-sm bg-white  text-orange-700 opacity-90 flex items-center justify-center">
+                                        <mat-icon [matMenuTriggerFor]="menu" class="text-2xl leading-6 cursor-pointer -mr-3">more_vert</mat-icon>
+                                        <mat-menu #menu="matMenu" xPosition="before">
+                                            <button (click)="openDialog()" mat-menu-item class=" font-semibold">
+                                             <mat-icon class="text-lg leading-5">devices</mat-icon>
+                                              <span>Preview</span>
+                                            </button>                                
+                                          </mat-menu>
+                                        
+                                    </div>
                                 </div>
+    
                             </div>
-
+                            <div class="px-4"><input type="text" [(ngModel)]="formTitle"
+                                    class="border-2 text-sm rounded-sm py-0.5 bg-transparent font-medium placeholder:text-gray-400 placeholder:font-semibold border-zinc-300 w-full px-1.5  mt-2 opacity-90 focus:opacity-100 outline-none focus:border-blue-500"
+                                    name="" placeholder="Form Title" id=""></div>
+                            <div class="px-4 border-b-2 border-gray-200 pb-5"><textarea type="text" [(ngModel)]="formDescription"
+                                    class="border-2 rounded-sm  text-sm py-0.5 bg-transparent font-medium placeholder:text-gray-400 placeholder:font-semibold border-zinc-300 w-full px-1.5  mt-2 opacity-90 focus:opacity-100 outline-none focus:border-blue-500"
+                                    name="" placeholder="Description" id=""></textarea></div>
                         </div>
-                        <div class="px-2"><input type="text" [(ngModel)]="formTitle"
-                                class="border-2 text-sm rounded-sm py-0.5 bg-transparent font-medium placeholder:text-gray-400 placeholder:font-semibold border-zinc-300 w-full px-1.5  mt-2 opacity-90 focus:opacity-100 outline-none focus:border-blue-500"
-                                name="" placeholder="Form Title" id=""></div>
-                        <div class="px-2"><textarea type="text" [(ngModel)]="formDescription"
-                                class="border-2 rounded-sm  text-sm py-0.5 bg-transparent font-medium placeholder:text-gray-400 placeholder:font-semibold border-zinc-300 w-full px-1.5  mt-2 opacity-90 focus:opacity-100 outline-none focus:border-blue-500"
-                                name="" placeholder="Description" id=""></textarea></div>
+                        <div class="overflow-y-scroll">
+                            <div class="h-form-custom py-6 ">
+                                <ng-container *ngFor="let section of sections;let i=index">
+                                    <app-section [cols]="section?.cols" [divs]="section?.divs" [config]="section" [idx]="i" (unSelectConfigEvent)="unSelectConfig($event)"  (selectConfigEvent)="selectConfig($event)" (unSelectSectionEvent)="unSelectSection($event)" (selectSectionEvent)="selectSection($event)" (deleteSectionEvent)="deleteSection($event)"></app-section>
+                                </ng-container>
+                            </div>
+                        </div>
+
+            
                     </div>
-        
-                    <ng-container *ngFor="let section of sections;let i=index">
-                        <app-section [cols]="section?.cols" [divs]="section?.divs" [config]="section" [idx]="i" (unSelectConfigEvent)="unSelectConfig($event)"  (selectConfigEvent)="selectConfig($event)" (unSelectSectionEvent)="unSelectSection($event)" (selectSectionEvent)="selectSection($event)" (deleteSectionEvent)="deleteSection($event)"></app-section>
-                    </ng-container>
-        
-                </div>
             </div>
-            <div class=" w-1/6 mr-3 min-w-72 relative h-full">
+            <div class=" w-1/6  min-w-64 relative h-full border-l-2 border-gray-200">
                 <div class="overflow-y-auto bg-white  min-h-full">
-                    <div class=" text-sm font-medium pb-4 pt-2  w-full  -z-10">
+                    <div class=" text-sm font-medium pb-4   w-full  -z-10">
                         <div >
-                            <mat-tab-group animationDuration="0ms" >
-                                <mat-tab label="Insert">
-                                    <div  style="height: calc(100vh - 185px);" class="overflow-y-scroll  py-2">
-                                          <div class=" text-gray-500 font-semibold text-xs px-3 py-2 f-roboto">CONTENT BLOCKS</div>
+                            <mat-tab-group animationDuration="0ms" fitInkBarToContent  >
+                                <mat-tab label="Insert" fitInkBarToContent>
+                                    <div  style="height: calc(100vh - 105px);" class="overflow-y-scroll  py-2">
+                                          <div class=" text-gray-500 font-semibold f-s-11 px-3 py-2 f-roboto">CONTENT BLOCKS</div>
                                           <div class="grid grid-cols-2 gap-3 py-3 px-3   mb-2 ">
                                             <div (click)="addLayout(design)" *ngFor="let design of designs"
                                                 class="h-16   ring-1 ring-gray-300  flex items-center gap-1 px-2 py-2  hover:bg-zinc-50  hover:shadow-md cursor-pointer">
@@ -101,52 +101,52 @@
                                         </div>
                                         <div class="text-sm mt-2 font-semibold text-gray-600  border-t-2 py-2 border-gray-100">
                                             <div (click)="addDivider()"
-                                                class="px-5 py-2.5 hover:bg-neutral-100 cursor-pointer rounded-sm flex items-center gap-4">
-                                                <div class="w-5 h-5 "><img src="assets/icons/divider.png" class="w-full h-full opacity-60"
+                                                class="px-6 py-3 hover:bg-neutral-50 cursor-pointer rounded-sm flex items-center gap-4">
+                                                <div class="w-5 h-5  "><img src="assets/icons/divider.png" class="w-full h-full opacity-60"
                                                         alt="" srcset=""></div>
                                                 Divider
                                             </div>
                                             <div (click)="addSpacer()"
-                                                class="px-5 py-2.5 hover:bg-neutral-100 cursor-pointer rounded-sm flex items-center gap-4">
+                                                class="px-6 py-3 hover:bg-neutral-50 cursor-pointer rounded-sm flex items-center gap-4">
                                                 <div class="w-5 h-5 "><img src="assets/icons/spacer.png" class="w-full h-full opacity-60"
                                                         alt="" srcset=""></div>
                                                 Spacer
                                             </div>
                                             <div
-                                                class="px-5 py-2.5 hover:bg-neutral-100 cursor-pointer rounded-sm flex items-center gap-4">
+                                                class="px-6 py-3 hover:bg-neutral-50 cursor-pointer rounded-sm flex items-center gap-4">
                                                 <div class="w-5 h-5 "><img src="assets/icons/radio.png" class="w-full h-full opacity-60"
                                                         alt="" srcset=""></div>
                                                 Radio
                                             </div>
                                             <div
-                                                class="px-5 py-2.5 hover:bg-neutral-100 cursor-pointer rounded-sm flex items-center gap-4">
-                                                <div class="w-5 h-5"><img src="assets/icons/text.png" class="w-full h-full opacity-60"
+                                                class="px-6 py-3 hover:bg-neutral-50 cursor-pointer rounded-sm flex items-center gap-4">
+                                                <div class="w-5 h-5 "><img src="assets/icons/text.png" class="w-full h-full opacity-60"
                                                         alt="" srcset=""></div>
                                                 Text Box
                                             </div>
                                             <div
-                                                class="px-5 py-2.5 hover:bg-neutral-100 cursor-pointer rounded-sm flex items-center gap-4">
-                                                <div class="w-5 h-5"><img src="assets/icons/drop.png" class="w-full h-full opacity-60"
+                                                class="px-6 py-3 hover:bg-neutral-50 cursor-pointer rounded-sm flex items-center gap-4">
+                                                <div class="w-5 h-5 "><img src="assets/icons/drop.png" class="w-full h-full opacity-60"
                                                         alt="" srcset=""></div>
                                                 Dropdown
                                             </div>
                                             <div
-                                                class="px-5 py-2.5 hover:bg-neutral-100 cursor-pointer rounded-sm flex items-center gap-4">
-                                                <div class="w-5 h-5"><img src="assets/icons/check.png" class="w-full h-full opacity-60"
+                                                class="px-6 py-3 hover:bg-neutral-50 cursor-pointer rounded-sm flex items-center gap-4">
+                                                <div class="w-5 h-5 "><img src="assets/icons/check.png" class="w-full h-full opacity-60"
                                                         alt="" srcset=""></div>
                                                 Checkbox
                                             </div>
                                             <div
-                                                class="px-5 py-2.5 hover:bg-neutral-100 cursor-pointer rounded-sm flex items-center gap-4">
-                                                <div class="w-5 h-5">
+                                                class="px-6 py-3 hover:bg-neutral-50 cursor-pointer rounded-sm flex items-center gap-4">
+                                                <div class="w-5 h-5 ">
                                                     <img src="assets/icons/calendar.png" class="w-full h-full"  alt="" srcset="">
                                                     <!-- <mat-icon class="text-base leading-4">date_range</mat-icon> -->
                                                 </div>
                                                 Date
                                             </div>
                                             <div
-                                                class="px-5 py-2 hover:bg-neutral-100 cursor-pointer rounded-sm flex items-center gap-4">
-                                                <div class="w-5 h-5"><img src="assets/icons/textarea.png" class="w-full h-full opacity-60"
+                                                class="px-6 py-3 hover:bg-neutral-50 cursor-pointer rounded-sm flex items-center gap-4">
+                                                <div class="w-5 h-5 "><img src="assets/icons/textarea.png" class="w-full h-full opacity-60"
                                                         alt="" srcset=""></div>
                                                 Textarea
                                             </div>

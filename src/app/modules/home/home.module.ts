@@ -24,7 +24,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatButtonModule,
     MatTabsModule,
     SharedModule,
-    FormsModule
+    FormsModule,
 
   ]
 })
