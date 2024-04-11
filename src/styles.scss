@@ -14,6 +14,11 @@
 
 }
 
+.mat-tab-label {
+  min-width: 40px!important;
+  max-height: 46px!important;
+}
+
 .mat-tab-label:focus:not(.mat-tab-disabled){
   opacity: 1!important;
 }
@@ -127,8 +132,22 @@ th, td, table{
 
 .mat-tab-label-active{
     color:rgb(5, 64, 167)!important;
-    font-weight: 500!important;
+    // border-bottom: 2px solid rgb(5, 64, 167)!important;
+    font-weight: 600!important;
 }
+
+.mat-tab-label{
+  padding: 0px 0px!important;
+  margin: 0 12px;
+  font-weight: 600!important;
+  color:rgb(112, 112, 112);
+}
+
+
+.mat-tab-label-content{
+  padding: 20px 0px!important;
+}
+
 
 ::ng-deep mwlResizable {
   box-sizing: border-box; // required for the enableGhostResize option to work
@@ -157,6 +176,7 @@ th, td, table{
 
 
   .mat-tab-group.mat-primary .mat-ink-bar, .mat-tab-nav-bar.mat-primary .mat-ink-bar{
-    background: rgba(15, 76, 181, 0.9);
-    height: 0.12rem;
+    background: rgba(15, 76, 181, 1);
+    // background: none!important;
+    height: 0.15rem;
   } 

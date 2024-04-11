@@ -22,7 +22,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatTreeModule,
     MatIconModule,
     MatButtonModule,
-    MatTabsModule,
     SharedModule,
     FormsModule,
 
