@@ -38,6 +38,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatNativeDateModule } from '@angular/material/core';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatTabsModule} from '@angular/material/tabs';
+import { NumberComponent } from 'src/app/components/number/number.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,8 @@ import {MatTabsModule} from '@angular/material/tabs';
     SpacerComponent,
     DividerComponent,
     TextAreaComponent,
-    DatePickerComponent
+    DatePickerComponent,
+    NumberComponent,
         
   ],
   imports: [
@@ -118,7 +120,8 @@ import {MatTabsModule} from '@angular/material/tabs';
     TextAreaComponent,
     DatePickerComponent,
     MatExpansionModule,
-    MatTabsModule
+    MatTabsModule,
+    NumberComponent,
   ]
 })
 export class SharedModule { }

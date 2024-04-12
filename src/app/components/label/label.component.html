@@ -6,6 +6,6 @@
   </div>
     <cite [contentEditable]="editable" (input)="editLabelText($event,label )" [innerText]="config?.label"
     (focusout)="changeLabelText(label?.innerText)" #label
-    class="w-full flex-1 p-2 border-2 border-white focus:border-2 min-h-10 h-max    outline-none font-semibold text-sm"
+    class="w-full flex-1 p-1 border-2 border-white focus:border-2 min-h-3.5 h-max    outline-none font-semibold text-sm"
     placeholder="Click here to edit label" [spellcheck]="false"></cite>
 </div>

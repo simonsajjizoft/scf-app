@@ -28,13 +28,6 @@ export class HomeComponent {
   formTitle = '';
   formDescription = '';
   @ViewChild('layoutModal') layoutModal: ElementRef | any;
-  @HostListener('document:click', ['$event.target'])
-  onClick(target: any) {
-    const clickedInside = this.layoutModal.nativeElement.contains(target);
-    if (!clickedInside) {
-      this.layoutDropdown = false;
-    }
-  }
 
   constructor(private dialog: MatDialog) { }
 

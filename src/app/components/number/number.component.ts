@@ -1,12 +1,11 @@
-import { DatePipe } from '@angular/common';
 import { Component, ElementRef, EventEmitter, Input, Output, Renderer2, ViewChild } from '@angular/core';
 
 @Component({
-  selector: 'app-date-picker',
-  templateUrl: './date-picker.component.html',
-  styleUrls: ['./date-picker.component.scss']
+  selector: 'app-number',
+  templateUrl: './number.component.html',
+  styleUrls: ['./number.component.scss']
 })
-export class DatePickerComponent {
+export class NumberComponent {
   @Input() placeholder: any;
   @Input() config: any;
   @Input() editable: any;
@@ -17,22 +16,16 @@ export class DatePickerComponent {
   @ViewChild('field') field: ElementRef | any;
   @ViewChild('menu') menu: ElementRef | any;
   showConfig: boolean = false;
-  formattedDate: string|any;
-;
-  selectedDate= new Date(); 
-  constructor(private renderer: Renderer2,  private datePipe: DatePipe) {
+
+  constructor(private renderer: Renderer2) {
+
   }
 
-  ngOnInit(){
-  }
-
-  selectField($event: any) {
-
+  selectField() {
     if (this.editable) {
       this.showConfig = true;
       this.selectFieldEvent.emit(this.config);
     }
-    else $event.stopPropagation();
 
   }
 
@@ -52,16 +45,36 @@ export class DatePickerComponent {
     this.config.label = ev;
   }
 
-  changeMinDate(ev: any) {
-    this.config.minDate = ev?.target?.value?.trim();
+  changeMin(ev: any) {
+    this.config.min = ev?.target?.value?.trim();
   }
 
-  changeMaxDate(ev: any) {
-    this.config.maxDate = ev?.target?.value?.trim();
+  changeMax(ev: any) {
+    this.config.max = ev?.target?.value?.trim();
   }
 
   deleteItem() {
     this.deleteItemEvent.emit(this.idx);
+  }
+
+  validate() {
+    this.config.value = this.valBetween(this.config?.value, this.config?.min, this.config?.max);
+  }
+
+  valBetween(v: any, min: any, max: any) {
+    return (Math.min(max, Math.max(min, v)));
+  }
+
+  restrictNumberInput(input:any) {
+    var value = input.value;
+    console.log(value)
+    if (Number(value) < Number(this.config?.min) && this.config.min) {
+      input.value = this.config?.min;
+    } 
+    else if (Number(value) > Number(this.config?.max) && this.config.max) {
+      input.value = this.config?.max;
+    }
+    else input.value = value;
   }
 
 }

@@ -55,7 +55,7 @@ export class SectionComponent implements AfterViewInit,OnChanges {
       item.label = "";
       item.selected = false;
       item.checked = false;
-      item.values = ['Select Option', 'Option A', 'Option B'];
+      item.values = ['Select Option'];
       item.required = false;
       item.allowInput = true;
     }
@@ -100,6 +100,19 @@ export class SectionComponent implements AfterViewInit,OnChanges {
       item.minLength = "";
       item.maxLength = "";
       item.allowInput = true;
+      item.rows = '3';
+      item.cols = '1';
+    }
+    else if (field == 'number') {
+      item.type = field;
+      item.placeholder = 'Placeholder';
+      item.label = "";
+      item.selected = false;
+      item.checked = false;
+      item.required = false;
+      item.min = "";
+      item.max = "";
+      item.allowInput = true;
     }
     else if (field == 'datepicker') {
       item.type = field;
@@ -108,8 +121,8 @@ export class SectionComponent implements AfterViewInit,OnChanges {
       item.selected = false;
       item.checked = false;
       item.required = false;
-      item.minLength = "";
-      item.maxLength = "";
+      item.minDate = "";
+      item.maxDate = "";
       item.allowInput = true;
     }
     else {

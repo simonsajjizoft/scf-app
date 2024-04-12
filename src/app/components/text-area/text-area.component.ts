@@ -47,4 +47,20 @@ export class TextAreaComponent {
   deleteItem() {
     this.deleteItemEvent.emit(this.idx);
   }
+
+  changeMinText(ev:any){
+    this.config.minLength = ev?.target?.value?.trim();
+  }
+
+  changeMaxText(ev:any){
+    this.config.maxLength = ev?.target?.value?.trim();
+  }
+
+  changeCols(ev:any){
+    this.config.cols = ev?.target?.value?.trim();
+  }
+  changeRows(ev:any){
+    this.config.rows = ev?.target?.value?.trim();
+  }
+
 }

@@ -19,6 +19,8 @@
                   <app-spacer *ngSwitchCase="'spacer'" [editable]="false" [config]="item" [idx]="idx" ></app-spacer>
                   <app-text-area *ngSwitchCase="'textarea'" [editable]="false" [config]="item" [idx]="idx"  ></app-text-area>
                   <app-date-picker *ngSwitchCase="'datepicker'" [editable]="false" [config]="item" [idx]="idx"></app-date-picker>
+                  <app-number *ngSwitchCase="'number'" [editable]="false" [placeholder]="item?.placeholder"   [config]="item" (unselectFieldEvent)="unSelectConfig($event)" (selectFieldEvent)="selectConfig($event)"></app-number>
+
                 </div>
               </div>
               <div *ngIf="!item?.type" class="  opacity-100 hover:opacity-100 min-h-10 flex flex-col items-center justify-center "></div>

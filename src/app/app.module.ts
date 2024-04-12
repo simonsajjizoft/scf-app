@@ -25,9 +25,11 @@ import { FormsModule } from '@angular/forms';
 import { LabelComponent } from './components/label/label.component';
 import { DividerComponent } from './components/divider/divider.component';
 import { SpacerComponent } from './components/spacer/spacer.component';
+import { DatePipe } from '@angular/common';
+import { NumberComponent } from './components/number/number.component';
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +38,7 @@ import { SpacerComponent } from './components/spacer/spacer.component';
     BrowserAnimationsModule,
     SharedModule,
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
