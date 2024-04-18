@@ -67,7 +67,6 @@ export class NumberComponent {
 
   restrictNumberInput(input:any) {
     var value = input.value;
-    console.log(value)
     if (Number(value) < Number(this.config?.min) && this.config.min) {
       input.value = this.config?.min;
     } 

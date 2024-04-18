@@ -1,79 +1,91 @@
-<div #section (click)="selectSection();$event.stopPropagation()"   class="cursor-pointer grid pl-10 pr-8  py-3   gap-4  relative"
-   [ngClass]="{'border-2 border-blue-500':config?.selected,'border-t-2 border-b-2 border-dashed border-gray-100':!config?.selected,
+<div #section (click)="selectSection();$event.stopPropagation()"
+  class="cursor-pointer grid pl-10 pr-8  py-3   gap-4  relative rounded-md"
+  [ngClass]="{'border-2 border-blue-500 bg-blue-50':config?.selected,'border-t-2 border-b-2 border-dashed border-gray-100':!config?.selected,
  'grid-cols-1' : config?.cols==1, 'grid-cols-2':config?.cols==2,'grid-cols-3':config?.cols==3,'grid-cols-4':config?.cols==4}">
-  <div   class="z-10 border rounded-3xl px-5 py-1 bg-white w-max shadow-md absolute -top-10 right-2 flex items-center gap-3" *ngIf="config?.selected" >
-    <div (click)="deleteSection(this.idx)"  class="font-semibold text-gray-500 text-xs flex items-center " matTooltip="Delete Section">
+  <div
+    class="z-10 border rounded-3xl px-5 py-1 bg-white w-max shadow-md absolute -top-10 right-2 flex items-center gap-3"
+    *ngIf="config?.selected">
+    <div (click)="deleteSection(this.idx)" class="font-semibold text-gray-500 text-xs flex items-center "
+      matTooltip="Delete Section">
       <mat-icon class="leading-6 text-lg">delete_outline</mat-icon>
       Delete
     </div>
+
   </div>
-  <ng-container *ngFor="let item of config?.divs;let i=index">
-    <div  *ngIf="item?.type" #elementitem 
-     class=" cursor-pointer opacity-90 hover:opacity-100 h-max flex flex-col " (click)="selectElement(item);$event.stopPropagation()">
-      <div class="w-full h"  (click)="config.selected=false"   [ngSwitch]="item?.type">
-        <app-textbox *ngSwitchCase="'textbox'" [editable]="true" [placeholder]="item?.placeholder" [config]="item"
-          (unselectFieldEvent)="unSelectConfig($event)" (selectFieldEvent)="selectConfig($event)"
-          (deleteItemEvent)="deleteItem($event)" [idx]="i"></app-textbox>
-        <app-radio *ngSwitchCase="'radio'" [editable]="true" [config]="item" (deleteItemEvent)="deleteItem($event)"
-          [idx]="i"></app-radio>
-        <app-dropdown *ngSwitchCase="'dropdown'" [editable]="true" [config]="item"
-          (deleteItemEvent)="deleteItem($event)" [idx]="i"></app-dropdown>
-        <app-checkbox *ngSwitchCase="'checkbox'" [editable]="true" [config]="item"
-          (deleteItemEvent)="deleteItem($event)" [idx]="i"></app-checkbox>
-        <app-label *ngSwitchCase="'label'" [editable]="true" [config]="item" [idx]="i"  (deleteItemEvent)="deleteItem($event)"></app-label>
-        <app-divider *ngSwitchCase="'divider'" [editable]="true" [config]="item" [idx]="i" [sectionIdx]="idx"  ></app-divider>
-        <app-spacer *ngSwitchCase="'spacer'" [editable]="true" [config]="item" [idx]="i" [sectionIdx]="idx"  (deleteSectionSpacer)="deleteSection(this.idx)"></app-spacer>
-        <app-text-area *ngSwitchCase="'textarea'" [editable]="true" [config]="item" [idx]="i"  (deleteItemEvent)="deleteItem($event)"></app-text-area>
-        <app-date-picker *ngSwitchCase="'datepicker'" [editable]="true" [config]="item" [idx]="i"  (deleteItemEvent)="deleteItem($event)"></app-date-picker>
-        <app-number *ngSwitchCase="'number'" [editable]="true" [placeholder]="item?.placeholder" [config]="item"
-        (unselectFieldEvent)="unSelectConfig($event)" (selectFieldEvent)="selectConfig($event)"
-        (deleteItemEvent)="deleteItem($event)" [idx]="i"></app-number>
+  <div *ngFor="let el of config?.divs;let i=index" class="border-2 border-gray-200 min-h-24 h-max px-4 py-4 rounded-md shadow bg-white relative flex flex-col justify-start gap-4">
+  
+    <div *ngFor="let item of el?.elements" >
+      <div  #elementitem class=" cursor-pointer opacity-90 hover:opacity-100 h-max flex flex-col  "
+        (click)="selectElement(item);$event.stopPropagation()">
+        <div class="w-full h" (click)="config.selected=false" [ngSwitch]="item?.type">
+          <app-textbox *ngSwitchCase="'textbox'" [editable]="true" [placeholder]="item?.placeholder" [config]="item"
+            (unselectFieldEvent)="unSelectConfig($event)" (selectFieldEvent)="selectConfig($event)"
+            (deleteItemEvent)="deleteItem($event)" [idx]="i"></app-textbox>
+          <app-radio *ngSwitchCase="'radio'" [editable]="true" [config]="item" (deleteItemEvent)="deleteItem($event)"
+            [idx]="i"></app-radio>
+          <app-dropdown *ngSwitchCase="'dropdown'" [editable]="true" [config]="item"
+            (deleteItemEvent)="deleteItem($event)" [idx]="i"></app-dropdown>
+          <app-checkbox *ngSwitchCase="'checkbox'" [editable]="true" [config]="item"
+            (deleteItemEvent)="deleteItem($event)" [idx]="i"></app-checkbox>
+          <app-label *ngSwitchCase="'label'" [editable]="true" [config]="item" [idx]="i"
+            (deleteItemEvent)="deleteItem($event)"></app-label>
+          <app-divider *ngSwitchCase="'divider'" [editable]="true" [config]="item" [idx]="i"
+            [sectionIdx]="idx"></app-divider>
+          <app-spacer *ngSwitchCase="'spacer'" [editable]="true" [config]="item" [idx]="i" [sectionIdx]="idx"
+            (deleteSectionSpacer)="deleteSection(this.idx)"></app-spacer>
+          <app-text-area *ngSwitchCase="'textarea'" [editable]="true" [config]="item" [idx]="i"
+            (deleteItemEvent)="deleteItem($event)"></app-text-area>
+          <app-date-picker *ngSwitchCase="'datepicker'" [editable]="true" [config]="item" [idx]="i"
+            (deleteItemEvent)="deleteItem($event)"></app-date-picker>
+          <app-number *ngSwitchCase="'number'" [editable]="true" [placeholder]="item?.placeholder" [config]="item"
+            (unselectFieldEvent)="unSelectConfig($event)" (selectFieldEvent)="selectConfig($event)"
+            (deleteItemEvent)="deleteItem($event)" [idx]="i"></app-number>
+        </div>
       </div>
+     
     </div>
-    <div *ngIf="!item?.type" (click)="config.selected=false;$event.stopPropagation()" 
-      class="cursor-pointer  bg-section opacity-100 hover:opacity-100 min-h-28 flex flex-col items-center justify-center border-dashed border-2 border-zinc-200">
-      <!-- <img [matMenuTriggerFor]="menu" src="assets/icons/add.png" class="opacity-65" width="50px" height="50px" alt=""
-        srcset=""> -->
-      <button mat-icon-button [matMenuTriggerFor]="menu"  class="bg-white bx-sh2 hover:bg-blue-50">
+    <div class="w-full h-10 border-2 border-dashed border-gray-200 bg-slate-50 rounded-sm flex justify-center">
+      <button mat-icon-button [matMenuTriggerFor]="menu" class=" text-slate-300">
         <mat-icon>add</mat-icon>
       </button>
       <mat-menu #menu="matMenu">
-        <button (click)="appendField('label',item)" mat-menu-item class="flex items-center gap-1">
+        <button (click)="appendField('label',el)" mat-menu-item class="flex items-center gap-1">
           <div class="w-5 h-5"><img src="assets/icons/label.png" class="w-full h-full" alt="" srcset=""></div>
           <span>Label</span>
         </button>
-        <button (click)="appendField('radio',item)" mat-menu-item class="flex items-center gap-1">
+        <button (click)="appendField('radio',el)" mat-menu-item class="flex items-center gap-1">
           <div class="w-5 h-5"><img src="assets/icons/radio.png" class="w-full h-full" alt="" srcset=""></div>
           <span>Radio</span>
         </button>
-        <button (click)="appendField('textbox',item)" mat-menu-item class="flex items-center gap-1">
+        <button (click)="appendField('textbox',el)" mat-menu-item class="flex items-center gap-1">
           <div class="w-5 h-5"><img src="assets/icons/text.png" class="w-full h-full" alt="" srcset=""></div>
           <span>Text Box</span>
         </button>
-        <button (click)="appendField('dropdown',item)" mat-menu-item class="flex items-center gap-1">
+        <button (click)="appendField('dropdown',el)" mat-menu-item class="flex items-center gap-1">
           <div class="w-5 h-5"><img src="assets/icons/drop.png" class="w-full h-full" alt="" srcset=""></div>
           <span>Dropdown</span>
         </button>
-        <button (click)="appendField('checkbox',item)" mat-menu-item class="flex items-center gap-1">
+        <button (click)="appendField('checkbox',el)" mat-menu-item class="flex items-center gap-1">
           <div class="w-5 h-5"><img src="assets/icons/check.png" class="w-full h-full" alt="" srcset=""></div>
           <span>Checkbox</span>
         </button>
-        <button (click)="appendField('textarea',item)" mat-menu-item class="flex items-center gap-1">
+        <button (click)="appendField('textarea',el)" mat-menu-item class="flex items-center gap-1">
           <div class="w-5 h-5"><img src="assets/icons/textarea.png" class="w-full h-full" alt="" srcset=""></div>
           <span>Textarea</span>
         </button>
-
-        <button (click)="appendField('datepicker',item)" mat-menu-item class="flex items-center gap-1">
+  
+        <button (click)="appendField('datepicker',el)" mat-menu-item class="flex items-center gap-1">
           <div class="w-5 h-5"><img src="assets/icons/calendar.png" class="w-full h-full" alt="" srcset=""></div>
           <span>Date</span>
         </button>
-        <button (click)="appendField('number',item)" mat-menu-item class="flex items-center gap-1">
+        <button (click)="appendField('number',el)" mat-menu-item class="flex items-center gap-1">
           <div class="w-5 h-5"><img src="assets/icons/number.png" class="w-full h-full" alt="" srcset=""></div>
           <span>Number</span>
         </button>
-
+  
       </mat-menu>
     </div>
-  </ng-container>
+
+  </div>
 
 </div>

@@ -22,10 +22,10 @@ export class SectionComponent implements AfterViewInit,OnChanges {
   @ViewChild('elementitem') elementitem:ElementRef|any;
   showSectionOptions:boolean = false;
   designs = [
-    { cols: 1, divs: [{ type: '' }] ,selected:false},
-    { cols: 2, divs: [{ type: '' }, { type: '' }] ,selected:false},
-    { cols: 3, divs: [{ type: '' }, { type: '' }, { type: '' }],selected:false },
-    { cols: 4, divs: [{ type: '' }, { type: '' }, { type: '' }, { type: '' }],selected:false }
+    { cols: 1, divs: [{ elements:[] }] ,selected:false},
+    { cols: 2, divs: [{elements:[]}, { elements:[] }] ,selected:false},
+    { cols: 3, divs: [{elements:[] }, { elements:[] }, { elements:[] }],selected:false },
+    { cols: 4, divs: [{elements:[]}, { elements:[] }, {elements:[]}, {elements:[] }],selected:false }
   ];
 
   constructor(private renderer: Renderer2){
@@ -49,7 +49,8 @@ export class SectionComponent implements AfterViewInit,OnChanges {
   });
   }
 
-  appendField(field: any, item: any) {
+  appendField(field: any, el: any) {
+    let item:any = {type:''};
     if (field == 'dropdown') {
       item.type = 'dropdown';
       item.label = "";
@@ -133,6 +134,11 @@ export class SectionComponent implements AfterViewInit,OnChanges {
       item.required = false;
       item.allowInput = true;
     }
+
+    el?.elements?.push(item);
+    console.log(el)
+
+
   }
 
   selectConfig(config: any) {

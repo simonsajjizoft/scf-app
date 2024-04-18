@@ -16,7 +16,6 @@ export class FormPreviewComponent {
       this.sections = data?.sections;
       this.formTitle = data?.formTitle;
       this.formDescription = data?.formDescription;
-      console.log(this.sections)
      } 
 
      onCancel(): void { 

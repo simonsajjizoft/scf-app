@@ -17,10 +17,10 @@ export class HomeComponent {
   ];
   layoutView = this.layouts[1];
   designs = [
-    { cols: 1, divs: [{ type: '' }], selected: false },
-    { cols: 2, divs: [{ type: '' }, { type: '' }], selected: false },
-    { cols: 3, divs: [{ type: '' }, { type: '' }, { type: '' }], selected: false },
-    { cols: 4, divs: [{ type: '' }, { type: '' }, { type: '' }, { type: '' }], selected: false }
+    { cols: 1, divs: [{ elements:[] }] ,selected:false},
+    { cols: 2, divs: [{elements:[]}, { elements:[] }] ,selected:false},
+    { cols: 3, divs: [{elements:[] }, { elements:[] }, { elements:[] }],selected:false },
+    { cols: 4, divs: [{elements:[]}, { elements:[] }, {elements:[]}, {elements:[] }],selected:false }
   ];
   sections: any = []
   sidebarWidth: Number | any = 350;
