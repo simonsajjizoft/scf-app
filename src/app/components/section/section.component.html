@@ -40,6 +40,9 @@
           <app-number *ngSwitchCase="'number'" [editable]="true" [placeholder]="item?.placeholder" [config]="item"
             (unselectFieldEvent)="unSelectConfig($event)" (selectFieldEvent)="selectConfig($event)"
             (deleteItemEvent)="deleteItem($event)" [idx]="i"></app-number>
+            <app-file-upload *ngSwitchCase="'file-upload'" [editable]="true" [config]="item"
+            (unselectFieldEvent)="unSelectConfig($event)" (selectFieldEvent)="selectConfig($event)"
+            (deleteItemEvent)="deleteItem($event)" [idx]="i"></app-file-upload>
         </div>
       </div>
      
@@ -81,6 +84,10 @@
         <button (click)="appendField('number',el)" mat-menu-item class="flex items-center gap-1">
           <div class="w-5 h-5"><img src="assets/icons/number.png" class="w-full h-full" alt="" srcset=""></div>
           <span>Number</span>
+        </button>
+        <button (click)="appendField('file-upload',el)"  mat-menu-item class="flex items-center gap-1">
+          <div class="w-5 h-5"><mat-icon>file</mat-icon></div>
+          <span>File Upload</span>
         </button>
   
       </mat-menu>

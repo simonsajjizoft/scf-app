@@ -1,0 +1,50 @@
+<div *ngIf="editable && config?.selected"
+  class="z-10 border rounded-3xl px-5 py-1 bg-white w-max shadow-md absolute -top-10 right-2 flex items-center gap-3">
+  <div (click)="deleteItem()" class="font-semibold text-gray-500 text-xs flex items-center "
+    matTooltip="Delete Section">
+    <mat-icon class="leading-6 text-lg">delete_outline</mat-icon>
+  </div>
+  <div [matMenuTriggerFor]="configMenu" class="font-semibold text-gray-500 text-xs flex items-center "
+    matTooltip="Delete Section">
+    <mat-icon class="leading-6 text-lg">edit</mat-icon>
+  </div>
+</div>
+<mat-menu #configMenu="matMenu" yPosition="above" xPosition="before"
+  style="width: 640px!important;height: max-content!important;">
+  <div (click)="$event.stopPropagation();"
+    class=" min-h-14 max-h-24 w-scr overflow-y-auto flex items-center flex-wrap gap-3  bg-white z-10 rounded-md p-5 text-xs">
+    <div class="flex gap-2 items-center">
+      <div class="font-semibold">Required</div>
+      <mat-slide-toggle class="example-margin" [color]="'primary'" (change)="config.required = $event?.checked"
+        [checked]="config?.required">
+      </mat-slide-toggle>
+    </div>
+    <div class="flex gap-2 items-center">
+      <div class="font-semibold">Allow Input</div>
+      <mat-slide-toggle class="example-margin" [color]="'primary'" (change)="config.allowInput = $event?.checked"
+        [checked]="config?.allowInput">
+      </mat-slide-toggle>
+    </div>
+    <div class="flex gap-2 items-center">
+      <div class="font-semibold">Multiple Files</div>
+      <mat-slide-toggle class="example-margin" [color]="'primary'" (change)="config.multiple = $event?.checked"
+        [checked]="config?.multiple">
+      </mat-slide-toggle>
+    </div>
+  </div>
+</mat-menu>
+<div class="text-sm">
+  <input type="file" class="file-input" (click)="$event.stopPropagation();" (change)="onChange($event)" #fileUpload [multiple]="config.multiple" />
+  
+  <!-- <div *ngIf="file">
+  <section class="file-info text-sm">
+    File details:
+    <ul>
+      <li>Name: {{file.name}}</li>
+      <li>Type: {{file.type}}</li>
+      <li>Size: {{file.size}} bytes</li>
+    </ul>
+  </section>
+
+</div> -->
+</div>

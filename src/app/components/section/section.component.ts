@@ -126,6 +126,15 @@ export class SectionComponent implements AfterViewInit,OnChanges {
       item.maxDate = "";
       item.allowInput = true;
     }
+    else if(field=='file-upload') {
+      item.type = field;
+      item.label = "";
+      item.multiple = false;
+      item.selected = false;
+      item.checked = false;
+      item.required = false;
+      item.allowInput = true;
+    }
     else {
       item.type = field;
       item.label = "";

@@ -39,6 +39,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatTabsModule} from '@angular/material/tabs';
 import { NumberComponent } from 'src/app/components/number/number.component';
+import {FileUploadComponent} from 'src/app/components/file-upload/file-upload.component';
 
 @NgModule({
   declarations: [
@@ -63,6 +64,7 @@ import { NumberComponent } from 'src/app/components/number/number.component';
     TextAreaComponent,
     DatePickerComponent,
     NumberComponent,
+    FileUploadComponent
         
   ],
   imports: [
@@ -122,6 +124,7 @@ import { NumberComponent } from 'src/app/components/number/number.component';
     MatExpansionModule,
     MatTabsModule,
     NumberComponent,
+    FileUploadComponent
   ]
 })
 export class SharedModule { }
